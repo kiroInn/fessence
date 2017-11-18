@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 外部样式表 -->
+    <link rel="stylesheet" href="learn-css.css">
+    <title>learn css</title>
+    <!-- 内部样式表 -->
+    <style type="text/css">
+        p{
+            background-color: red;
+        }
+        body{
+            background-color: gray;
+        }
+        /* selector */
+        div{
+            color: pink;
+        }
+        .title{
+           font-size: 2cm;  
+        }
+    </style>
+</head>
+<!-- 内联样式表 -->
+<body >
+    
+    <div class="title">样式优先级降序</div>
+    <div>内联样式表 > 内部样式表 > 外部样式表 > 浏览器缺省样式</div>
+    <div class="title">样式优先级升序</div>
+    <div> 浏览器缺省样式 < 外部样式表 < 内部样式表  < 内联样式表</div>
+</body>
+</html>
