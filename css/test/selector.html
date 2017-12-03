@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selector</title>
+    <!-- 内部样式表 -->
+    <style>
+        /* elements selector */
+        /* div {
+            color: red;
+        }
+
+        span{
+            color: green;
+        }
+
+        img{
+            color: red;
+        }
+        
+
+        body{
+            color: gold;
+        }
+
+        p{
+            color: blue;
+        } */
+        /* class selector */
+        /* .p{
+            color: green;
+        }
+        .span{
+            color: rosybrown;
+        }
+        .strong{
+            color: aqua;
+        }
+        .title{
+            font-size: 30px;
+        }
+        .div{
+            color: red;
+        }
+        .div{
+            color: darkorange;
+        } */
+        /* id selector */
+        /* #div{
+            color: red;
+         }
+         #div1{
+             font-size: 30px;
+         } */
+        /* attr selector */
+        /* [href]{
+
+         }
+         [href='#']{
+             color: red;
+         }
+         [href~='type1']{
+            color: green;
+         }
+         [xiaowang]{
+             color: yellow;
+             font-size: 40px;
+         }
+         [doubleClick]{
+            color: hotpink;
+         } */
+        /* false selector */
+        /* a::before{
+             content: '√';
+         }
+         a:hover{
+             color: red;
+         }
+         a:visited{
+             color: white;
+         }
+         a:focus{
+             color: violet;
+         }
+         input:focus{
+            color: violet;
+         } */
+        /* combin selector */
+        /* div,input{
+             color: red;
+         } */
+        /* '+' 代表当前元素下一个兄弟节点 */
+        /* form ~ div,
+        form ~ p {
+            color: red;
+        }
+        *{
+            font-size: 30px;
+        } */
+        /* values */
+        /* span{
+            color: red;
+        } */
+
+        /* selector priority */
+        span{
+            color: red;
+        }        
+        .span{
+            color: yellow;
+        }
+        /* #span{
+            color: green;
+        } */
+        [span]{
+            color: pink;
+        }
+        /* span,#span{
+            color: burlywood;
+        }
+        [span],#span{
+            color: hotpink;    
+        } */
+/*       
+        body #span{
+            color: salmon;
+        } */
+
+        body .span.span1{
+            color: hotpink;
+        }
+        body .span1.span{
+            color: hotpink;
+        }
+        /* body .span1{
+            color: burlywood;
+        } */
+
+        /* id  attr class element */
+           /* 0-99,0-99,0-99,0-99
+            +1， +？，   +1，  +1   ？？？？ */
+    </style>
+    <!-- 外部样式表 -->
+    <!-- <link rel="stylesheet" href=""> -->
+</head>
+
+<body>
+    <p>
+        <!-- 内联样式表 -->
+        <span class="span span1" span id="span">
+            form div
+        </span>
+
+    </p>
+
+    <!-- <form action="">
+    </form>
+    <p>form p</p>
+    
+
+    <a href="#type1">href1</a>
+    <a href="#2html">href2</a>
+    <a href="#3css">href3</a>
+    <DIV>div</DIV>
+    <div class="div">div1</div>
+    <div class="div">div2</div>
+    <div class="div">div3</div>
+    <div class="title div">title</div>
+    <p class="p">p</p>
+    <span class="span">span</span>
+    <p>
+        <strong class="strong">strong</strong>
+    </p> -->
+</body>
+
+</html>

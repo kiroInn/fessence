@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border-box</title>
+    <style type="text/css">
+        *{
+            box-sizing: border-box;
+        }
+        .package{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            overflow: scroll;
+            border-width: 5px;
+            border-color: red;
+            border-style: solid;
+            /* border: 2px solid red; */
+            padding-top: 5px;
+            padding-left: 5px;
+            background-repeat: no-repeat;
+            background-color: orange;
+            background-attachment: scroll;
+            background-image: url(../assets/bg.png);
+            /* background-image: linear-gradient(to right, yellow , blue, red); */
+            background-size: 20px 20px;
+        }
+        .number-2{
+            margin-top: 20px;
+        }
+        #reset-password{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="package">
+        内容过多了内容过多了内容过多了内容过多了内容过多了
+    </div>
+    <div class="package number-2">
+        包裹2
+    </div>
+    <span class="package">包裹3</span>
+    <span class="package">包裹42222</span>
+    <a class="package">包裹5</a>
+    <a class="package">包裹6</a> -->
+    <div>
+        <form action=""  id="login">
+            <label for="">登录</label><input type="text">
+            <button>登录</button>
+            <a href="#" id="forget-pwd">忘记密码</a>
+        </form>
+        <form action=""  id="reset-password">
+            <label for="">您的邮箱</label><input type="text">
+            <button>找回密码</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+       // 找到忘记密码元素
+       var forgetButton = document.getElementById("forget-pwd");
+       // 找到登录块元素
+       var loginEle = document.getElementById("login");
+       // 找到忘记密码元素
+       var resetEle = document.getElementById("reset-password");
+       // 给忘记密码元素添加事件  click
+       forgetButton.addEventListener('click', function(e){
+          // 登录元素隐藏
+          loginEle.style.display = "none" ;
+          // 忘记密码元素显示     
+          resetEle.style.display = "block";
+       },false);
+
+    </script>
+</body>
+</html>

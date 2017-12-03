@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>three-layout</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #left {
+            width: 200px;
+            background-color: #123;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        #right {
+            width: 300px;
+            background-color: #789;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+        #middle {
+            background-color: pink;
+            height: 100px;
+            margin: 0px 300px 0px 200px;
+        }
+        [col1]{
+
+        }
+        [col2]{
+
+        }
+        .btn-normal{
+            font-size: 14px;
+        }
+        .btn-bigger{
+            font-size: 18px;
+        }
+        .container{
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div row>
+        <div col1></div>
+        <div col1></div>
+        <div col1></div>
+        <div col1></div>
+    </div>
+    <div id="container">
+        <div id="left">left</div>
+        <div id="right">right</div>
+        <div id="middle">middle</div>
+    </div>
+</body>
+
+</html>

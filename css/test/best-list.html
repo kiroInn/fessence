@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Best like</title>
+    <style>
+        *{
+          font-family: fantasy;
+          font-style: italic;
+        }
+        .website a:hover{
+            color: rgb(255, 0, 0);
+        }
+        .website .best-like{
+            color: rgb(206, 79, 174);
+        }
+        .food a:hover{
+            color: rgb(42, 175, 42);
+        }
+        .food .best-like{
+            color: rgb(142, 194, 46);
+        }
+        .title{
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 2px solid red;
+            margin: 5px;
+            overflow-y: scroll;
+            overflow-x: none;
+        }
+        .clear::after{
+            content: ' ';
+            height: 0;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div claas="clear" style="border:1px solid red;float:left;"> <span>1</span><span>2</span></div>
+    <div class="title">分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点</div>
+    <div class="title">分享我最喜欢的站点</div>
+    <p>分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点分享我最喜欢的站点</p>
+    <ul class="website">
+        <li><a class="best-like" href="www.baidu.com">百度</a></li>
+        <li><a href="taobao.com">淘宝网</a></li>
+        <li><a style="text-transform:uppercase;" href="dedao.com">得到</a></li>
+        <li><a style="text-transform:uppercase;" href="jd.com">jd.com</a></li>
+        <li><a href="#">XX</a></li>
+    </ul>
+    <ul class="food">
+        <li><a class="best-like" href="#">锅包饭</a></li>
+        <li><a href="#">羊肉泡馍</a></li>
+        <li><a href="#">炸鸡腿</a></li>
+        <li><a href="#">河洛</a></li>
+        <li><a href="#">火锅</a></li>
+    </ul>
+</body>
+</html>

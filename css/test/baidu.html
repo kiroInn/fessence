@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度一下</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .bg-img {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -10;
+            /* background-color: hotpink; */
+            background-image: url(../assets/baidu-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .header {
+            height: 32px;
+            background-color: red;
+        }
+
+        .container {
+            width: 895px;
+            margin: 0 auto;
+            min-height: 600px;
+        }
+
+       
+
+        .logo-and-search {
+            padding: 20px 0px 40px;
+            text-align: center;
+        }
+
+        .main-news {
+            background-color: rgba(255, 255, 255, .8);
+            min-height: 400px;
+        }
+
+        .menu {
+            height: 40px;
+            border-bottom: 1px solid gray;
+        }
+
+        .menu li {
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            min-width: 100px;
+            padding: 0 20px;
+        }
+
+        .menu li.active {
+            background-color: #8db5df;
+        }
+
+        .lists {
+            width: 70%;
+            height: 300px;
+            float: left;
+            text-align: center;
+        }
+
+        .lists li {
+            text-align: left;
+        }
+
+        .news {
+            padding: 20px;
+        }
+
+        .hot-news {
+            float: left;
+            width: 30%;
+            height: 300px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        .info {
+            position: relative;
+            display: inline;
+            background-color: white;
+            padding: 0px 10px;
+        }
+
+        .line {
+            border-top: 2px solid #13477a;
+            position: relative;
+            top: 10px;
+        }
+        .footer {
+            position: fixed;
+            width: 100%;
+            text-align: center;
+            background-color: gray;
+            bottom: 0px;
+        }
+        /* .news:after{
+            content: ' ';
+            height: 0;
+            clear: both;
+            display: block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="bg-img"></div>
+    <div class="header"></div>
+    <div class="container">
+        <div class="logo-and-search">
+            <h1 class="title">baidu 百度</h1>
+            <div>
+                <input type="text">
+                <span>百度一下</span>
+            </div>
+        </div>
+        <div class="main-news">
+            <div class="menu">
+                <ul>
+                    <li>我的关注</li>
+                    <li class="active">推荐</li>
+                    <li>导航</li>
+                </ul>
+            </div>
+            <div class="news">
+                <div class="lists">
+                    <div class="line"></div>
+                    <div class="info">info</div>
+                    <ul>
+                        <li>
+                            <div class="title">title</div>
+                            <div>
+                                <img src="../assets/bg.png" alt="">
+                                <img src="../assets/bg.png" alt="">
+                                <img src="../assets/bg.png" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">title</div>
+                            <div>
+                                <img src="../assets/bg.png" alt="">
+                                <img src="../assets/bg.png" alt="">
+                                <img src="../assets/bg.png" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">title</div>
+                            <img src="../assets/bg.png" alt="">
+                            <img src="../assets/bg.png" alt="">
+                            <img src="../assets/bg.png" alt="">
+                            <div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">title</div>
+                            <div>
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hot-news">
+                    <ul>
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">footer</div>
+</body>
+
+</html>

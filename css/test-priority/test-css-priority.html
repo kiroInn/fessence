@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS test</title>
+    <link rel="stylesheet" href="test-priority.css">
+    <style>
+        div {
+            background-color: white;
+        }
+
+        a:link {
+            font-size: 29px;
+        }
+
+        a:hover {
+            font-size: 90px;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a::before {
+            content: '⤴上涨';
+        }
+
+        p::first-letter {
+            font-size: 3em;
+            border: 1px solid black;
+            background: red;
+            display: block;
+            float: left;
+            padding: 2px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>asdasdas</p>
+        <p>test for css priority</p>
+        <a href="#">Click me</a>
+        <a>Clickasdasd</a>
+        <div>testme </div>
+        <div>jj</div>
+        <div>jjjj</div>
+        <div>jj</div>
+        <div></div>
+        <div>asd</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

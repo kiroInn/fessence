@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>float</title>
+    <style>
+       .container{
+            border-width: 1px;
+            border-style: solid;   
+            padding: 5px;      
+            /* position: relative;  */
+            /* top: 10px;
+            left: 10px; */
+            /* bottom: 10px;
+            right: 10px; */
+       }
+       .item1{
+         position: relative;
+         border-color: #467;
+         left: 50%;
+         z-index: 10;
+       }
+       .item2{
+         position: relative;
+         border-color: red;
+         bottom: 10px;
+         z-index: 9;
+       }
+       .absolute-item{
+           position: absolute;
+           top: 0px;
+           left: 0px;
+       }
+       .container-parent{
+           border: 1px solid green;
+           padding: 5px;
+           position: relative;
+           height: 40px;
+       }
+       .logo{
+           width: 200px;
+           background-color: blueviolet;
+           position: fixed;
+           top: 0px;
+           left: 50%;
+       }
+       #left{
+           float: left;
+           background-color: #456;
+       }
+       #right{
+           float: right;
+           background-color: #789;;
+           height: 40px;
+       }
+       .button{
+           float: left;
+       }
+       .clearfix{
+           clear: both;
+       }
+       .span-container{
+           background-color: gray;
+           border: 1px solid black;
+           text-align: center;
+           height: 50px;
+           display: table;
+           width: 100%;
+           vertical-align: middle;
+       }
+       .span-element{
+           display: inline-block;
+           width: 220px;
+           background-color: yellowgreen;
+       }
+       .div-container{
+           margin-top: 10px;
+           background-color: gray;
+           border: 1px solid black;
+       } 
+       .block-element{
+           background: greenyellow;
+           width: 100px;
+           margin: 0 auto;
+           text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <!-- <table>
+        <tbody>
+            <tr>
+                <td> data </td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div class="span-container">
+        <span class="span-element">span element span elementspan element
+        </span>
+    </div>
+    <div class="div-container">
+        <div class="block-element">div element</div>
+    </div>
+    <!-- <div class="container item1">
+        <button class="button">clickme1</button>
+        <button class="button">clickme2</button>
+        <button class="button">clickme3</button>
+        <button class="button">clickme4</button>
+        <button class="button">clickme5</button>
+        <div class="clearfix"></div>
+    </div>
+    <div class="container item2">
+            <button class="button">clickme1</button>
+            <button class="button">clickme2</button>
+            <button class="button">clickme3</button>
+            <button class="button">clickme4</button>
+            <button class="button">clickme5</button>
+            <div class="clearfix"></div>
+    </div>
+    <div class="container-parent">
+        <div class="container absolute-item">
+                <button class="button">clickme1</button>
+                <div class="clearfix"></div>
+                <div class="logo">logo</div>
+        </div>
+    </div> -->
+</body>
+</html>
