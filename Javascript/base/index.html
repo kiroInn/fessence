@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 变量生命 var b; 
+        // 先发生申请 后发生赋值  var a = 100;
+        // document.write(a)
+
+        var a;
+        a = 100;
+
+        // 原始值
+        // Number String Boolean undefined null
+        // 数字是阿拉伯人发明  印度发明 0 1
+        // 布尔这个人  true false
+        // undefined 没有定义的值
+        // null 
+        var a = 10; 
+        var b = a;
+        a = 20;
+        document.write(b)
+
+        var array = [1];
+        var array1 = array;
+        array.push(2);
+        document.write(array1);
+
+        // 引用值
+        // Array Object Function ...date RegExp
+        var arr = [1,2,3,4,5,false,"abc"];
+
+        // 原始值 存在stack first in last out 引用 heap
+
+        // 错误分为两种
+        // 低级错误(语法解析错误)
+
+        // 1/0 Infinity
+        // % 4%6 = 4;
+        // var a = 10; var b = ++a -a + a++   b? a?
+
+        
+    </script> 
+</body>
+</html>
