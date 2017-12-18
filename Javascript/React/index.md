@@ -8,3 +8,5 @@
 它具有与浏览器的本地事件相同的接口
 包括stopPropagation（）和preventDefault（）
 除了事件在所有浏览器上的工作方式相同
+
+# 
