@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script >
+        
+        // 原码  0000 0000  => -127 127 
+        // 原码 1000 1000 => -8
+        // 反码 1111 0111 =？ -8
+        // 补码 1111 1000 =》 -8
+
+        // var tmp = 25 ^ 3; 
+        // 0000 1000 原码
+        // -9  1000 1001 原
+        // 1111 0110 反
+        // 1111 0111 补
+//         25 = 0000 0000 0000 0000 0000 0000 0001 1001
+//         3 =  0000 0000 0000 0000 0000 0000 0000 0011
+// ---------------------------------------------
+//         25^3=0000 0000 0000 0000 0000 0000 0001 1010
+
+        // 1
+        // document.write(tmp);
+        // 结果为2
+        // 
+        // ! 返回值一定是一个boolean类型 true  false
+        // && 返回值不一定是boolean类型 担忧可能是boolean 以及其他类型
+        var tmp = false || 10;
+        document.write(tmp);
+
+    </script>
+</body>
+</html>
