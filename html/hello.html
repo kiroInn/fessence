@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+ #div_top_hypers {
+    background-color:#eeeeee;
+    display:inline;      
+}
+#ul_top_hypers {
+    border: 1px solid #6f6f6f;
+    display: flex;
+    justify-content:space-around;
+    list-style-type:none;
+}
+li:not(:last-child) {
+        border-right: 1px solid #6f6f6f; 
+      }
+    </style>
 </head>
 <body>
-    hello world
+        <div id="div_top_hypers">
+                <ul id="ul_top_hypers">
+                    <li>&#8227; <a href="" class="a_top_hypers"> Inbox</a></li>
+                    <li>&#8227; <a href="" class="a_top_hypers"> Compose</a></li>
+                    <li>&#8227; <a href="" class="a_top_hypers"> Reports</a></li>
+                    <li>&#8227; <a href="" class="a_top_hypers"> Preferences</a></li>
+                    <li>&#8227; <a href="" class="a_top_hypers"> logout</a></li>
+                </ul>
+            </div>
+            
 </body>
 </html>

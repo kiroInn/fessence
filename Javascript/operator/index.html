@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
 
-    <script >
-        
+    <script>
+
         // 原码  0000 0000  => -127 127 
         // 原码 1000 1000 => -8
         // 反码 1111 0111 =？ -8
@@ -20,10 +22,10 @@
         // -9  1000 1001 原
         // 1111 0110 反
         // 1111 0111 补
-//         25 = 0000 0000 0000 0000 0000 0000 0001 1001
-//         3 =  0000 0000 0000 0000 0000 0000 0000 0011
-// ---------------------------------------------
-//         25^3=0000 0000 0000 0000 0000 0000 0001 1010
+        //         25 = 0000 0000 0000 0000 0000 0000 0001 1001
+        //         3 =  0000 0000 0000 0000 0000 0000 0000 0011
+        // ---------------------------------------------
+        //         25^3=0000 0000 0000 0000 0000 0000 0001 1010
 
         // 1
         // document.write(tmp);
@@ -31,9 +33,166 @@
         // 
         // ! 返回值一定是一个boolean类型 true  false
         // && 返回值不一定是boolean类型 担忧可能是boolean 以及其他类型
-        var tmp = false || 10;
-        document.write(tmp);
+        // var tmp = false || 10;
+        // document.write(tmp);
+
+        // object
+        // var age = 16;
+        // var name = '小明';
+        // var sex = 'female';
+        // var person = {
+        //     age: age,
+        //     name: name,
+        //     sex: sex,
+        //     score: 90,
+
+        // }
+        // 逻辑非
+        // var isAdult = (person.age > 18);
+        // document.write(isAdult);
+        // if(isAdult){
+        //     document.write("成年啦! ");
+        // }else{
+        //     document.write("还未成年 仍需努力！")
+        // }
+        // // 逻辑与 表现形成 &&
+        // var isSuccess = person.score > 80 && person.age > 18 && person.sex == 'male';
+        // document.write(isSuccess);
+        // if(person.score > 80 && person.age > 18 && person.sex == 'male'){
+        //     document.write("通过面试");
+        // }else{
+        //     document.write("未通过面试");
+        // }
+
+        // 逻辑或  表现形式 ||
+        // var isSuccess = person.score > 80 || person.age > 18 || person.sex == 'male'; 
+        // if(isSuccess){
+        //     document.write("通过面试");
+        // }else{
+        //     document.write("未通过面试");
+        // } 
+
+        // var number = 10.1111;
+        // number += 11; // number = number -1;
+        // document.write('11' * 2);
+        // document.write(new Number('11') * 2);
+
+        // ==  与 === 的区别
+        // == 帮咱们做的事情 直接判断值是否相等
+        // 首先会用到typeof关键字 去判断类型是否相等
+        // 在类型相等的前提下 在去判断值是否相等
+        // var personMing = {
+        //     age: 16,
+        //     name: '小明',
+        //     sex: 'male',
+        //     score: 90,
+        // }
+        // var personHong = {
+        //     age: '16',
+        //     name: '小红',
+        //     sex: 'female',
+        //     score: 95
+        // }
+        // document.write( typeof personMing.age + '\r\n');
+        // document.write( typeof personHong.age + '\r\n');
+        // document.write(personMing.age === personHong.age);
+        // 三元条件操作符
+        // document.write(personMing.age > 18 ? 'isAdult' : 'notAdult');
+        // 逗号操作符
+        // var personLi;var personXing;var personKang;var personZhao;
+        // var personLi,personXing,personKang,personZhao
+        // var key = (5,5,2,1);
+        // document.write(key);
+        // 出场次数较高的 If语句
+        // var i = 20;
+        // if(i > 10) {
+        //     console.log('大于10');
+        // } else {
+        //     console.log('小于10');
+        // }
+
+        // do{}-while(experssion) 循环语句
+        // var i = 100;
+        // do{
+        //     console.log('====================================');
+        //     console.log('work');
+        //     console.log('====================================');
+        //     i--;
+        // } while(i > 0)
+
+        // while(i > 0){
+        //     console.log('====================================');
+        //     console.log('work' + i--);
+        //     console.log('====================================');
+        // }
+
+        // for 循环
+        // for(initialization;expression; loop-expression)
+        // var i = 100;
+        // for(;i--;){
+        //     console.log('====================================');
+        //     console.log('work' + i);
+        //     console.log('====================================');
+        // }
+        // while(true){ 
+        //     console.log('====================================');
+        //     console.log('work' + i);
+        //     console.log('===================================='); 
+        // }
+        // for(var property in Object) in 
+        var personHong = {
+            age: '16',
+            name: '小红',
+            sex: 'female',
+            score: 95,
+            profession: '服装设计师'
+        }
+        // for (var property in personHong) {
+        //     console.log(personHong[property]);
+        // }
+        // labe: statement
+        // var num = 0;
+        // outer: for(var i = 0 ; i< 10 ; i++){
+        //     console.log(i);
+        //     if(i == 5){
+        //         break outer;
+        //     }
+        // }
+        // with 语句 性能较差 不推荐使用
+        // var name = personHong.name;
+        // var age = personHong.age;
+        // var score = personHong.score;
+        // console.log(name);
+        // console.log(age);
+        // console.log(score);
+        // var number = 10;
+        // with (personHong) {
+        //     console.log(name);
+        //     console.log(age);
+        //     console.log(score);
+        // }
+        // console.log(personHong.age)
+        // context
+
+        // switch(expression){  }
+
+        // 10! = 10 * 9 * 8 * ... *1;
+        // 2的5次幂  2*2*2*2*2
+        // var number = window.prompt();
+        // for whiel ..age
+        // console.log(result);
+        // document.write(result);
+
+        // 1,1,2,3,5,8,13,
+
+        var number = window.prompt();
+        console.log(321);
+
+            TypeScript
+
+
 
     </script>
 </body>
+
 </html>
