@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <!-- <button onclick="document.write('你好世界');">Click me!</button> -->
     <script type="text/javascript">
@@ -16,6 +17,53 @@
         // 变量a的声明 
         // a赋值为100的操作
         document.write(intro);
+        document.writeln("hello" + "<br>")
+        document.writeln("world")
+
+
+        function test(number) {
+            console.log(number);
+
+            var number = 2;
+            console.log(number);
+
+            function number() {
+                return;
+            }
+            console.log(number);
+
+            var test1 = function () {
+                return;
+            }
+            console.log(test1);
+        }
+        test(1)
+
+        function test(a,b){
+            console.log(a);
+            c = 0;
+            var c;
+            a = 3;
+            b = 2;
+            console.log(b);
+            function b(){}
+            function d(){}
+            console.log(b);
+        }
+        test(1);
+
+
+        console.log(test);
+        function test(test){
+            console.log(test)
+            test = 321;
+            console.log(test);
+            function test(){}
+            console.log(test)
+        }
+        test(123)
+
+
     </script>
     <!-- <script type="text/javascript" src="./index.js">
         document.write('bad boy');
