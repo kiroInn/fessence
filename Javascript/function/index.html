@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function Event</title>
+</head>
+
+<body>
+    <!-- <button onclick="showMessage('**###请帮我处理此次请求: **###username: wangXiao**###');">点击我wangXiao</button>
+    <button onclick="showMessage('**###请帮我处理此次请求: **###username: zhangXiao**###');">点击我zhangXiao</button>
+    <button onclick="showMessage('**###请帮我处理此次请求: **###username: liXiao**###');">点击我liXiao</button>
+    <button onclick="showMessage('**###请帮我处理此次请求: **###username: hongXiao**###');">点击我hongXiao</button> -->
+    <script>
+
+        // //  事件驱动 函数
+        // function showMessage(content) {
+        //     var dealWithContent = filterContent(content);
+        //     document.write("button完成了响应:  " +  dealWithContent);
+        // }
+
+        // // 重复使用代码块
+        // function filterContent(content) {
+        //     var unShowChars = "**###";
+        //     // 把content的内容过滤 过滤条件就是遇到unShowChars 替换为 '' => js 替换字符
+        //     // js 正则表达式  我们会在后续深入学习
+        //     return content.replace(/\*\*\#\#\#/g, '');
+        // }
+
+        // showMessage("innerScript **###请帮我处理此次请求: **###username: hongXiao**###");
+
+        // arguments 可读性 可维护性 不高 一般不推荐
+        // 形参数量不确定的时候
+
+        // function 对象  js 面向对象的一门程序语言
+        // cat 加菲 暹罗 虎斑 ...
+        // var cat = new Object();
+        // function cat(category,age) {
+        //     var category = category;
+        //     var age = age;
+        // }
+
+        // cat("加菲", 5);
+
+        // js的表现形式 
+        // 1 函数声明
+        // 2 函数表达式
+        // 3 Function类型
+
+        // function test(){}
+
+        // var test = function test(params) {}
+
+        // var filterContent = new Function("content","return content");
+
+        // window -> global context test variable
+        // 59line output undefined
+        // 浏览器引擎做的事情 var test;
+        // document.write(test);
+        // // ReferenceError: test1 is not defined
+        // // var test = "我是test";
+        // var test = "我是test";
+        // document.write(test);
+
+        // test();
+
+        // 函数声明
+        // function test() {
+        //     document.write("我是test function");
+        // }
+        // 预编译 会把读到的函数声明 可以使script内执行的任何代码可以使用读到的函数
+
+        // test1;
+        // TypeError
+
+        // 函数表达式
+        // var test1 = function () {
+        //     document.write("我是test1 expression function")
+        // }
+        // test1();
+
+        // 浏览器在执行我们代码之前
+        // 会把当前执行作用域的变量与函数声明 (提升) 其中变量是undefined 我们的函数声明为函数体本身
+
+        // test(false);     
+
+        // function test(isTruely){
+        //     var testName;
+        //     if(isTruely){
+        //         console.log(testName + '判断是真的')
+        //     }else{
+        //         console.log(testName + '判断是假的')
+        //     }
+        //     testName = "testName";
+        //     var testInner;
+        //     testInner = function(){
+        //         console.log("test inner execute");
+        //     }   
+        //     testInner();
+        // }   
+        // test(true);
+
+        // 浏览器引擎是如何work的
+        // 1 语法分析
+        // 2 预编译
+        // 3 解释执行
+
+        // var variable = "全局变量global";
+
+        // function globalTest (){
+        //     document.write("global Test");
+        // }
+
+        // function test() {
+        //     var testVariable = "test专用变量";
+        //     var variable = "局部变量test";
+        //     document.write(variable);
+        //     globalTest();
+
+        // }
+
+        // test();
+
+        // console.log(testVariable);
+
+        // var scopeChainStack = [testScope, windowScope];
+        // scopeChainStack.push(windowScope)
+        // windowScope: {
+        //    variable: "全局变量global",    
+        //    test: function(){},
+        //    globalTest: function(){}
+        // }
+        // ->
+        // scopeChainStack.push(testScope)
+        // testScope: {
+
+        // }
+
+
+
+        // document.write(variable);
+        // console.log(variable);
+
+
+        // 执行上下文(执行环境) execute context
+        // script 标签内 第一层 全局环境 window(global) context
+        // 在函数内 local context
+
+        // 函数局部环境有权访问当前上下文的变量与函数
+        // 外部 环境是没有(直接办法)访问函数内部的变量 或 函数 (闭包)
+        // 如何访问 可以通过闭包(??？)
+
+        // function bb(){
+        //     var bbVariable = "bb的变量";
+        //     function getVariable(){
+        //         return bbVariable;
+        //     }
+        //     return getVariable;
+        // }      
+        // var obj = bb();
+        // console.log(obj());
+
+        // 作用域链 (scope chain)
+        // 当我们在执行代码的时候 我们要使用到的变量or函数的确认。
+        // 这个作用域链就是一个 栈 stack
+
+
+
+
+        // document.write(test);
+        // for (var i = 0; i < 100; i++) {
+        //     document.write(i);
+        // }
+        // var test = "test";
+
+
+        // testScopeChain:
+        //
+        //testScopeChain[1] globalContext = {
+        //    test: function(){}
+        // }
+        //testScopeChain[0] testContext = {
+        //    number:  function,
+        //    test1: undefined,
+        // }
+        // var test = "test variable";
+
+        // test(1);
+        // function test(number) {
+        //     console.log(number); // 1 function
+        //     var number = 2;
+        //     console.log(number); // 2 2
+
+        //     function number() { }
+
+        //     console.log(number); // 3  2
+
+        //     console.log(test1) // 4 undefined
+        //     var test1 = function () { }
+        //     console.log(test1); // 5 function
+        // }
+        console.log(test); //1 function
+        function test() { console.log("test function") };
+        var test = "test variable";
+        console.log(test) // string -> test variable
+        // globalContext = {
+        //   test: function();
+        // }
+
+
+
+        // Parse 流程
+        // 
+
+    </script>
+</body>
+
+</html>
