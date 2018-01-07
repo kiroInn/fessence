@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>function learn 2</title>
+</head>
+
+<body>
+
+    <script>
+        // console.log(window);
+
+        // 1 step 语法分析
+        // 2 step 预编译 (提升 变量/函数)
+        // 3 解释执行
+
+        // 预编译 resolve step
+        // 1 创建当前执行的上下文
+        // 2 将我们的变量提升与形参提升
+        // 3 实参与形参统一
+        // 4 提升我们的函数声明
+        // ** 提升 只能提升声明语句 提升不了执行语句
+
+        // global house = {
+        //     test: function
+        // }
+
+        console.log(test);
+        // test() 函数声明
+        // test1() 函数表达式
+        function test(number) {
+            console.log(arguments); // [number]
+            console.log(number);  // function number()
+            var number = 2;
+            console.log(number); // 2
+            function number() {
+            }                   // skip
+            console.log(number); // 2
+            console.log(test1);  // undefined  ?
+            var test1;
+            test1 = function () {}
+            console.log(test1);  // function
+            console.log(test1()); // undefiend
+        }
+
+
+        // window.test(1); // == test(1);
+        // test house=> {
+        //   arguments: [1],
+        //   number: function number() {
+        //   },
+        //   test1: undefined ?,
+        // }
+
+
+    </script>
+
+</body>
+
+</html>
