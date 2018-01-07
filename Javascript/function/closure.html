@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .road {
+            display: block;
+            background-color: grey;
+            margin: 15px 5px;
+        }
+
+        .car {
+            display: inline-block;
+            width: 100px;
+            height: 35px;
+            background-color: palevioletred;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            text-align: center;
+        }
+
+        .operator {
+            text-align: center;
+        }
+
+        button {
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="road">
+        <div class="car" id="flls">法拉利</div>
+    </div>
+    <div class="road">
+        <div class="car">保时捷</div>
+    </div>
+    <div class="road">
+        <div class="car">奔驰</div>
+    </div>
+    <div class="road">
+        <div class="car">宝马</div>
+    </div>
+    <div class="road">
+        <div class="car">迷你</div>
+    </div>
+    <div class="road">
+        <div class="car">五菱宏光</div>
+    </div>
+    <!-- <div class="operator"><button>赛前报道</button></div> -->
+    <div class="operator">
+        <button id="start" onclick="run();">开始比赛</button>
+    </div>
+
+    <script>
+        // Race : 需求在点击每一辆车的时候 让其报自己的赛道号
+
+        var roads = document.getElementsByClassName('road'); //获取页面class为road的元素(赛道) Bom
+        for (var i = 0; i < roads.length; i++) {
+            var currentRoad = roads[i];
+            var carName = currentRoad.getElementsByClassName('car')[0].textContent;
+            (function (name, index) {
+                roads[index].onclick = function () {
+                    console.log(name + "在第" + (index + 1) + "号赛道");
+                }
+            }(carName, i))
+        }
+
+        function run() {
+            var marginValue = 0;
+            setInterval(function () {
+                for (var i = 0; i < roads.length; i++) {
+                    var car = roads[i].getElementsByClassName('car')[0];
+                    marginValue += 1;
+                    car.style.marginLeft = marginValue + 'px';
+                }
+            }, 60)
+        }
+        
+
+
+        // globalHouse -> car1House = {
+        //    roads[0].onclick = function(){ console.log(carName + "在第" + (i + 1) + "号赛道");}
+        // }
+
+         // car2House = {
+        //    carName: 保时捷,
+        //    i: 1,
+        //    roads[1].onclick = function()
+        // }
+         // car3House = {
+        //    carName: 奔驰,
+        //    i: 2,
+        //    roads[2].onclick = function()
+        // }
+         // car4House = {
+        //    carName: 宝马,
+        //    i: 3,
+        //    roads[3].onclick = function()
+        // } ....
+
+
+        // var carName = "特斯拉";
+        // var carFun1;
+        // var carFun2;
+        // var carFun3;
+        // for (var i = 0; i < 3; i++) {
+        //     switch (i) {
+        //         case 0: carFun1 = function () {
+        //             console.log(carName + i);
+        //         }; break;
+        //         case 1: carFun2 = function () {
+        //             console.log(carName + i);
+        //         }; break;
+        //         case 2: carFun3 = function () {
+        //             console.log(carName + i);
+        //         }; break;
+        //     }
+        // }
+        // globalHouse = {
+        //   i: 3  
+        //   carName: "特斯拉"  
+        // }
+        // console.log(i);
+        // carFun1();
+        // globalHouse -> carFun1House ={
+        //   i: 3  
+        //   carName: "特斯拉"  
+        // }
+        // carFun2();
+         // globalHouse -> carFun2House ={
+        //   i: 3  
+        //   carName: "特斯拉"  
+        // }
+        // carFun3();
+
+        function test(){
+            var number = 1;
+            return function test1(){
+                console.log(number++);
+            }
+        }
+        // var testV1 = test();
+        // testV1House = {
+         //   number: 1
+         //   test1:    
+        // }
+        // var testV2 = test();
+        // testV2House = {
+        //   number: 1
+         //  test1:
+        // } 
+        // testV1(); // 1
+        // testV2(); // 1
+        // test()()  // 1
+        // test()()  // 1
+
+
+        var testV1 = test();
+        // testHouse = {
+        //     number: 3;
+        //}
+        testV1();  // 1
+        // testHouse -> test1House ={
+        //     2
+        //}
+        testV1();  // 2
+       
+    </script>
+</body>
+
+</html>

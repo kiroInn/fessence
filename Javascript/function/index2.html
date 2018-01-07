@@ -88,29 +88,29 @@
         //   b: function,
         //   d: function,
         // }
-        var miTV = '小米65寸超级电视';
-        var sonyTV = 'SONY80寸超级电视';
-        function sleep(){
-            console.log('sleeping');
-        }
-        
-        function bigHouse() {
-            var peopleWang = 'Wanglaoshi';
-            console.log(peopleWang + ' in bigHouse');
-            console.log(peopleWang + ' watch at' + miTV);
-            console.log(sleep());
-        }
+        // var miTV = '小米65寸超级电视';
+        // var sonyTV = 'SONY80寸超级电视';
+        // function sleep() {
+        //     console.log('sleeping');
+        // }
 
-        function biggerHouse() {
-            var peopleRuan = 'RuanLaoshi';
-            console.log(peopleRuan + ' in BiggerHouse haha!');
-            console.log(peopleRuan + ' watch at floor one ' + sonyTV);
-            console.log(peopleRuan + ' watch at floor two ' + miTV);
-            console.log(sleep());
-        }
+        // function bigHouse() {
+        //     var peopleWang = 'Wanglaoshi';
+        //     console.log(peopleWang + ' in bigHouse');
+        //     console.log(peopleWang + ' watch at' + miTV);
+        //     console.log(sleep());
+        // }
 
-        bigHouse();
-        biggerHouse();
+        // function biggerHouse() {
+        //     var peopleRuan = 'RuanLaoshi';
+        //     console.log(peopleRuan + ' in BiggerHouse haha!');
+        //     console.log(peopleRuan + ' watch at floor one ' + sonyTV);
+        //     console.log(peopleRuan + ' watch at floor two ' + miTV);
+        //     console.log(sleep());
+        // }
+
+        // bigHouse();
+        // biggerHouse();
         // console.log(peopleWang); // 不可逆
         // globalhouse(scripthouse) =>{
         //     miTV：小米65寸超级电视
@@ -126,7 +126,57 @@
 
         // 作用域链在捣鬼
         // 保证对执行环境有权访问的所有变量和函数的有序访问
+        // function name(param1,param2 ....){statements;...}    
+        // var test = function (number1, number2) {
+        //     console.log(number1, number2);
+        // }(1, 2);
+        function normal(number1, number2) {
+            console.log(number1, number2);
+        };
+        normal(1, 2);
 
+        var obj = function () {
+            console.log("我是normal1 函数");
+        }
+
+        // 隐形函数  匿名函数
+        // 第一组括号() 他是结合运算符
+        // 第二组括号(1,2) == normal(1, 2)括号 函数执行符
+        // var number = (1 + 2) * 3;
+        // (function (number1, number2) {
+        //     console.log(number1, number2);
+        // }(1, 2));
+
+        // -function (number) {
+        //     return number
+        // }(89);
+
+        // !function (flag) {
+        //     return flag;
+        // }(false)
+
+        // 0, function (flag) {
+        //     return flag;
+        // }(false);
+        // (function (param) { console.log(param); })("匿名函数参数");
+
+        // function a() {
+        //     return function b() { console.log('a inner b execute') };
+        // }
+        // var vA = a;
+        // //  == function b(){console.log()}
+        // var vB = vA(); //  == function b(){console.log()}
+        // vB(); // 'a inner b execute
+        // a()(); // 'a inner b execute
+
+        // var outter = 'outter'
+        // var numberN = -function () {
+        //     var test = 2;
+        //     for (var i = 0; i < 100; i++) {
+        //         test += i
+        //     }
+        // }();
+        // console.log(numberN);
 
     </script>
 
