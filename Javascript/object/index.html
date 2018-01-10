@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Learn</title>
+</head>
+
+<body>
+    <script>
+        // 对象类Object 面向对象编程的基础
+
+        // Create 构造函数Object
+        var person1 = new Object();
+        person1.name = 'teahcerWang';
+        person1.age = 27;
+        person1.introCount = 0;
+        person1.intro = function () {
+            console.log('我是' + this.name +
+                '年龄' + this.age +
+                '是我第' + this.introCount++ + '为大家介绍');
+        }
+
+        // Create 字面量表示
+        var person2 = {
+            name: "teacherZhang",
+            age: 27,
+            isMale: true,
+            introCount: 0,
+            intro: function () {
+                console.log('我是' + this.name +
+                    '年龄' + this.age +
+                    '是我第' + this.introCount++ + '为大家介绍');
+            }
+        };
+        person1.age;
+        person2.isMale;
+        // 通过自定义构造函数
+        function Phone(brand, price) {
+            var that = this;
+            that.brand = brand;
+            that.price = price;
+            return that;
+        }
+
+        var miPhone = new Phone();
+        miPhone.name = 'xxx';
+        miPhone.play = function () { }
+        // the new keywords
+        // 1 create new object simply object;
+        // 2 current scope varibale initialaztion linked this;
+        // 3 return this
+        // java 
+        // class Phone{
+        //     String brand;
+        //     long price;
+        //     Phone(String brand, long price){
+        //         this.brand = brand;
+        //         this.price = price;
+        //     }
+
+        //     void play(){}
+        // }
+
+        // class Test{
+        //     mian(){
+        //         Phone miPhone = new Phone('小米', 1999);
+        //         miPhone.brand;
+        //         miPhone.play()
+        //     }
+        // }
+
+
+        var test = {
+            number: function getNumber() {
+                return 10
+            }
+        }
+        console.log(test.number());
+        console.log(test['number']());
+
+        // leftxxx property name
+        //  right xxx property value
+
+        // 电脑 对象
+        // (property) brand  screenSize  standByTime 
+        // （method）  watching  coding  playing    
+
+        //  js 中 this  __proto__?
+        // watching: function ( ) {
+        //     console.log( compute.brand );
+        //     console.log( this.brand );
+        // }
+
+
+    </script>
+</body>
+
+</html>

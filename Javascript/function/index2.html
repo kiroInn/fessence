@@ -178,6 +178,66 @@
         // }();
         // console.log(numberN);
 
+        // 函数声明
+        function name() {
+        }
+        // 函数表达式
+        var variable = function () {
+        }
+        var variable1 = function funname() {
+        }
+        // Function
+        new Function("test", "console.log('test')")
+
+        // 匿名函数 or 立即执行函数
+        // (function () { console.log('执行') })
+
+        // 作用域  就一定要想到 作用域链 
+        // house (house number)
+
+        //  teacherWang House  -> house number
+        //  function keting(8988) tv safa tuoxie(日系复古)
+        //  function cookHouse (8990) xxx1
+        //  function sleepHouse (8991)
+
+
+        //  teacherRuan House  -> house number
+        //  function keting(1000) tv safa tuoxie(粉红可爱)
+        //  function cookHouse (1001) xxx2
+        //  function sleepHouse (1002) 
+
+        // function ketingRuan() {
+        //     var who = "Ruan";
+        //     var times = 0;
+        //     return function sleepHouse() {
+        //         console.log('我在' + who + '家 第' + times++ + '睡觉');
+        //     }
+        // }
+        // ketingRuan()
+
+        // test
+        var a = 1;
+        function foo() {
+            // arguments 
+            var a = 12;
+            return function boo() {
+                var b = 8;
+                console.log(a + b);
+            }
+        }
+        var fooV = foo();
+        // fooV = function boo(a) {
+        //     var b = 8;
+        //     console.log(a + b);
+        // }
+        fooV(a);
+
+
+
+
+
+
+
     </script>
 
 </body>
