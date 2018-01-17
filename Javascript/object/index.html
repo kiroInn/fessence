@@ -17,37 +17,38 @@
         person1.name = 'teahcerWang';
         person1.age = 27;
         person1.introCount = 0;
+        person1.isMale = true;
         person1.intro = function () {
             console.log('我是' + this.name +
                 '年龄' + this.age +
                 '是我第' + this.introCount++ + '为大家介绍');
-        }
+        };
 
         // Create 字面量表示
-        var person2 = {
-            name: "teacherZhang",
-            age: 27,
-            isMale: true,
-            introCount: 0,
-            intro: function () {
-                console.log('我是' + this.name +
-                    '年龄' + this.age +
-                    '是我第' + this.introCount++ + '为大家介绍');
-            }
-        };
-        person1.age;
-        person2.isMale;
-        // 通过自定义构造函数
-        function Phone(brand, price) {
-            var that = this;
-            that.brand = brand;
-            that.price = price;
-            return that;
-        }
-
-        var miPhone = new Phone();
-        miPhone.name = 'xxx';
-        miPhone.play = function () { }
+        // var person2 = {
+        //     name: "teacherZhang",
+        //     age: 27,
+        //     isMale: true,
+        //     introCount: 0,
+        //     intro: function () {
+        //         console.log('我是' + this.name +
+        //             '年龄' + this.age +
+        //             '是我第' + this.introCount++ + '为大家介绍');
+        //     }
+        // };
+        // delete person1.age;
+        // person2.isMale;
+        // // 通过自定义构造函数
+        // function Phone(brand, price) {
+        //     var that = this;
+        //     that.brand = brand;
+        //     that.price = price;
+        //     return that;
+        // }
+        //
+        // var miPhone = new Phone();
+        // miPhone.name = 'xxx';
+        // miPhone.play = function () { }
         // the new keywords
         // 1 create new object simply object;
         // 2 current scope varibale initialaztion linked this;
@@ -73,13 +74,13 @@
         // }
 
 
-        var test = {
-            number: function getNumber() {
-                return 10
-            }
-        }
-        console.log(test.number());
-        console.log(test['number']());
+        // var test = {
+        //     number: function getNumber() {
+        //         return 10
+        //     }
+        // }
+        // console.log(test.number());
+        // console.log(test['number']());
 
         // leftxxx property name
         //  right xxx property value
@@ -88,11 +89,123 @@
         // (property) brand  screenSize  standByTime 
         // （method）  watching  coding  playing    
 
-        //  js 中 this  __proto__?
-        // watching: function ( ) {
-        //     console.log( compute.brand );
-        //     console.log( this.brand );
+        // // watching: function ( ) {
+        // //     console.log( compute.brand );
+        // //     console.log( this.brand );
+        // // }
+        //
+        // //  js 中 this  __proto__?
+        // // 引用类型的出现就是解决多个基本类型 一起使用的场景
+        // // 面向对象编程的思想
+        // // 比较灵活
+        //
+        // var obj = new Object();
+        // obj.name = 'obj name';
+        // obj.label = 'obj label';
+        // obj.toString = function () {
+        //     console.log('name: ' + this.name + ' label: ' + this.label);
+        // };
+        // // console.log(obj);
+        //
+        // // 自己实现的Looger
+        // function logger() {
+        //     for(var i = 0; i <arguments.length ; i++ ){
+        //         var node = arguments[i];
+        //         if( typeof(node) === 'object' ){
+        //             for(var key in node){
+        //                 console.log(node[key]);
+        //             }
+        //         }else{
+        //             console.log(node);
+        //         }
+        //     }
         // }
+        // logger('string', 128);
+        // logger(128);
+        // logger(true);
+        // logger(obj);
+        //
+        // console.log(obj.name);
+        // console.log(obj.label);
+        // console.log(obj.toString());
+        // console.log(obj.hasOwnProperty);
+        // console.log(obj.isNotMyProperty);
+        // console.log(obj);
+
+        // console.log('string');
+        // console.log(new String('string').toString());
+        // console.log(1);
+        // console.log(new Number(1).toString());
+        // console.log(true);
+        // console.log(new Boolean(true).toString());
+
+        // __proto__  真是的一个对象house 通过链式关系 解决我们 使用 对象的 属性 跟 方法...
+        // 帮我们解决了继承关系的一个属性
+        // prototype  也是一个对象 它场用来去做__proto__的产生  当我们去创建一个对象的时候 new
+        // function MyString(string){
+        //     this.string = string;
+        //     this.slicer = function (index) {
+        //         // 做的事情是拆分字符串
+        //         // return '只留下我';
+        //         return this.string.slice(index);
+        //     }
+        // }
+        // var initialString  = '我是需要处理的字符串: 只留下我';
+        // var string = new MyString(initialString);
+        // console.log(string.slicer(initialString.indexOf(' ')));
+
+
+        // this 很特殊 因为只有在执行时 this才能确定
+        // this 的判断很简单 查找执行方法前dot(.)的对象
+        // 如果没有发现dot(.) this就是global window
+        // 我们可以同过 Function.apply || Function.call 去改变执行中的this 执行的上下文
+        // 此对象就是this
+
+        // window.name = name
+        // var name = '我是需要处理的字符串: 只留下我(全局的我)';
+        // var initialString  = '我是需要处理的字符串: 只留下我(myString)';
+        // var myString  = {
+        //     name: initialString,
+        //     slicer: function(index){
+        //         return this.name.slice(index);
+        //     }
+        // };
+        //
+        // var myThis = {
+        //     name: '我是需要处理的字符串: 只留下我(my this)'
+        // };
+        // var echoThis = {
+        //     name: '我是需要处理的字符串: 只留下我(echo this)'
+        // }
+
+        // console.log(myString.slicer(13));  //只留下我(myString)'
+        // console.log(myString.slicer.call(this, 13)); // 只留下我(全局的我)'
+        // console.log(myString.slicer.call(myThis, 13)); //只留下我(my this)'
+        // console.log(myString.slicer.apply(echoThis, [13])); //只留下我(echo this)'
+        //
+        //
+        // var slicer = function(index){
+        //     console.log(this === window);
+        //     // var name = '我是需要处理的字符串: 只留下我(全局的我)';
+        //     // return 只留下我(全局的我)'
+        //     return this.name.slice(index);
+        // }
+        //
+        // console.log(slicer(13));
+
+        // function MyString(string){
+        //     this.string = string;
+        //     this.slicer = function (index) {
+        //         // 做的事情是拆分字符串
+        //         // return '只留下我';
+        //         console.log(this);
+        //         return this.string.slice(index);
+        //     }
+        // }
+        // var initialString  = '我是需要处理的字符串: 只留下我';
+        // var string = new MyString(initialString);
+        // console.log(string.slicer(initialString.indexOf(' ')));
+
 
 
     </script>
