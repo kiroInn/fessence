@@ -1,105 +1,370 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reference Type</title>
 </head>
+
 <body>
-<script>
-    // Object
-    // Array ECMAScript中较为重要的类型
+    <script>
+        // number Number string String boolean Boolean
+        // Object
+        // Array ECMAScript中较为重要的类型
 
-    // Create retrive
-    var arrEx = new Array('你好', 2, {name: 'xiaoMing'}, true, [1,2,3]);
-    for(var i = 0; i< arrEx.length;i++){
-        console.log(arrEx[i]);
-    }
+        // Create retrive
+        // var arrEx = new Array('你好', 2, { name: 'xiaoMing' }, true, [1, 2, 3]);
+        // for (var i = 0; i < arrEx.length; i++) {
+        //     console.log(arrEx[i]);
+        // }
 
-    // 最多可以包含 4 294 967 295项
-    function MyArray() {
-        for(var i =0 ; i< arguments.length; i++){
-            this[i] = arguments[i];
+        // // 最多可以包含 4 294 967 295项
+        // function MyArray() {
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         this[i] = arguments[i];
+        //     }
+        //     this.length = arguments.length;
+
+        // }
+
+        // var arrMy = new MyArray('你好', 2, { name: 'xiaoMing' }, true, [1, 2, 3]);
+        // for (var i = 0; i < arrMy.length; i++) {
+        //     console.log(arrMy[i]);
+        // }
+        // var isNotArray = { id: 101 };
+        // var isArray = [101, 102, 103];
+        // // 判断数组
+        // console.log('判断数组=============================');
+        // console.log(Array.isArray(isNotArray));
+        // console.log(Array.isArray(isArray));
+
+        // console.log('数组使用=============================');
+        // console.log(isArray.toString())
+        // console.log(new Array(isArray).toString())
+        // // 101 、 102 、 103
+        // console.log(isArray.join(' 、'))
+        // // 队列  规则  First in First out(先进先出)
+        // // push shift
+        // var queue = [];
+        // queue.push('apple');
+        // queue.push('banana');
+        // queue.push('orange');
+        // console.log(queue.shift()); // apple
+
+        // // 栈  规则 Last in First out(后进先出)
+        // // push pop
+        // var stack = new Array();
+        // stack.push('apple')
+        // stack.push('grape')
+        // stack.push('orange');
+        // console.log(stack.pop()); // orange
+
+        // // sort 给数组排序
+        // var numbers = [1, 0, 5, 4, 9, 7, 6];
+        // console.log(numbers.reverse());
+        // console.log(numbers.sort().reverse());
+        // console.log(numbers.sort(function (prev, next) {
+        //     if (next < prev) {
+        //         return -1;
+        //     } else if (next > prev) {
+        //         return 1;
+        //     } else {
+        //         return 0;
+        //     }
+        // }));
+        // // concat 合并数组
+        // console.log(numbers.concat(stack))
+
+        // // slice 基于当前的数组创建一个或多个新数组
+        // // 取 索引 3 与 7  slice(start, end)
+        // var slicesNumber = [1, 0, 5, 4, 9, 7, 6, 2, 9, 10, 11, 13].sort(function (prev, next) {
+        //     if (next < prev) {
+        //         return 1;
+        //     } else if (next > prev) {
+        //         return -1;
+        //     } else {
+        //         return 0;
+        //     }
+        // });
+        // console.log(slicesNumber);
+        // console.log(slicesNumber.slice(0, 4))
+        // console.log(slicesNumber.slice(4, 8))
+        // console.log(slicesNumber.slice(8))
+
+        // // 自己实现一个带有优先级的Queue
+        // // 1 low 2 normal 3 high
+        // // var queue = new Queue(prorioty, value);
+        // // queue.push(1, any1)
+        // // queue.push(1, any2)
+        // // queue.push(1, any3)
+        // // queue.push(1, any4)
+        // // queue.push(2, any5)
+        // // queue.push(2, any6)
+        // // queue.push(3, any7)
+        // // queue.push(2, any8)
+        // // queue.push(2, any9)
+        // // queue.shift() // any7
+        // // 1 low 2 normal 3 high
+        // var PRIORITY = {
+        //     LOW: 1,
+        //     NORMAL: 2,
+        //     HIGH: 3,
+        //     ALL: 0
+        // }
+
+        // function PriorityQueue() {
+        //     var that = this;
+        //     this.PRIORITY = PRIORITY;
+
+        //     this.nodes = [];
+
+        //     function Node(priority, value) {
+        //         this.priority = priority;
+        //         this.value = value;
+        //     }
+
+        //     this.push = function (p, v) {
+        //         if (validate(p)) {
+        //             if (this.nodes.length <= 0) {
+        //                 return this.nodes.push(new Node(p, v));
+        //             }
+        //             //1 nodes [new Node(1, '')]
+        //             //2 3 ''
+        //             var index = _getInsertIndex(this.nodes, p);
+        //             return this.nodes.splice(index, 0, new Node(p, v));
+        //         }
+        //         console.error('请输入合法的优先级');
+        //     }
+
+        //     function validate(value) {
+        //         var exist = false;
+        //         for (var p in this.PRIORITY) {
+        //             if (this.PRIORITY[p] === value) {
+        //                 exist = true;
+        //                 break;
+        //             }
+        //         }
+        //         return exist;
+        //     }
+
+        //     function _getInsertIndex(nodes, priority) {
+        //         var index = nodes.length;
+        //         for (var i = 0; i < nodes.length; i++) {
+        //             if (priority > nodes[i].priority) {
+        //                 index = i;
+        //                 break;
+        //             }
+        //         }
+        //         return index;
+        //     }
+
+        //     this.shift = function () {
+        //         return this.nodes.shift();
+        //     }
+
+        //     this.getItems = function () {
+        //         var priority = arguments[0] || 0;
+        //         var result = [];
+        //         if (validate(priority)) {
+        //             if (priority === PRIORITY.ALL) {
+        //                 result = this.nodes;
+        //             } else {
+        //                 result = this.nodes.filter(item => item.priority === priority);
+        //             }
+        //             return result;
+        //         }
+        //         console.error('getItems priority is err');
+        //     }
+        //     return that;
+        // }
+
+        // var test = PriorityQueue();
+
+        // // test case 1
+        // console.log(' low value in this case');
+        // test.push(PRIORITY.LOW, 'low1');
+        // test.push(PRIORITY.LOW, 'low2');
+        // console.log(test.shift()) // low1
+        // console.log(test.shift()) // low2
+        // // test case 2
+        // console.log('dif priority value in this case')
+        // test.push(PRIORITY.NORMAL, 'normal1')
+        // test.push(PRIORITY.LOW, 'low1')
+        // test.push(PRIORITY.HIGH, 'high1')
+        // console.log(test.shift()) // high1
+        // console.log(test.shift()) // normal1
+        // console.log(test.shift()) // low1
+
+        // // // test case 3
+        // console.log('more than one dif priority in this case');
+        // test.push(PRIORITY.NORMAL, 'normal1')
+        // test.push(PRIORITY.LOW, 'low2')
+        // test.push(PRIORITY.LOW, 'low1')
+        // test.push(PRIORITY.HIGH, 'high2')
+        // test.push(PRIORITY.NORMAL, 'normal2')
+        // test.push(PRIORITY.HIGH, 'high1')
+        // console.log(test.shift()) // high1
+        // console.log(test.shift()) // high1
+        // console.log(test.shift()) // normal1
+        // console.log(test.shift()) // low1
+        // console.log(test.shift()) // normal1
+        // console.log(test.shift()) // low1
+        // // h2 h1 n1 n2 l2 l1
+
+        // // test case4 
+        // console.log('invalid priority in this case');
+        // test.push('bad priority', 'low2')
+        // test.push(PRIORITY.LOW, 'low1')
+        // test.push(PRIORITY.HIGH, 'high2')
+        // console.log(test.shift()) //  invalid
+        // console.log(test.shift()) // 
+        // console.log(test.shift()) // 
+
+        // // test case5
+        // test.push(PRIORITY.NORMAL, 'normal1')
+        // test.push(PRIORITY.LOW, 'low2')
+        // test.push(PRIORITY.LOW, 'low1')
+        // test.push(PRIORITY.HIGH, 'high2')
+        // test.push(PRIORITY.NORMAL, 'normal2')
+        // test.push(PRIORITY.HIGH, 'high1')
+        // console.log(test.getItems()) // log all
+        // console.log(test.getItems(PRIORITY.HIGH)) // log high item
+        // console.log(test.getItems(PRIORITY.NORMAL)) // log high item
+        // console.log(test.getItems(PRIORITY.LOW)) // log high item
+
+        // //  普通函数 与 构造函数的区别
+        // // function funcName(){} 
+        // // function ClassName(){}
+        // // var funcNameVariable = funcName(); 
+        // // var classNameVariable = new ClassName();
+
+        // // Array methods
+        // // splice(startIndex, number, [items])
+        // // testArray.splice(1, 1, 'delitem')
+        // // slice(start, end);
+        // var testArray = [1, 2, 2, 3, 4, 5];
+        // var newNodes = [1, 2, 2, 3, 4, 5];
+        // newNodes.indexOf(4)
+        // newNodes.lastIndexOf(4)
+        // var newArray = testArray.slice(2, 4);
+     
+        // // [2,3,4]
+        // testArray[1] = 'edit Item';
+        // console.log(testArray);
+        // console.log(newArray);
+
+        // var refVar = 'testRef';
+        // function refOp(value) {
+        //     value = 'In refOp ' + value;
+        // }
+        // refOp(refVar);
+        // console.log(refVar);
+        // // In refOp (Mr zhang)
+        // // In refOp testRef (Mis zhao)
+        // // testRef (Mis yang)
+
+        // var tvControl = {
+        //     vol: 0,
+        //     up: 'up',
+        //     down: 'down'
+        // }
+        // function refObjOp(obj) {
+        //     // 
+        //     obj.vol += 1;
+        // }
+        // refObjOp(tvControl);
+        // refObjOp(tvControl);
+        // refObjOp(tvControl);
+        // refObjOp(tvControl);
+        // console.log(tvControl.vol);
+        //In refObjOp refObj (Mr jun)(Mr tao)
+        // function 接受形参的是时候 肯定是按值传递
+        // var idObj = { id: 1 }
+        // var objArray = [idObj, { id: 2 }, { id: 3 }];
+        // var copyArray = objArray.slice();
+        // objArray[0].id = 'edit id';
+        // console.log(copyArray[0].id)
+        // // 1 (tao|| jun|| qian|| zhao)
+        // // unknow (yang) 
+        // console.log(objArray.indexOf(idObj))
+        // 0 (!!tao || !!zhao)
+        // -1 (!!jun || !!qian || !!yang) 
+        
+        var scoreArray = [];
+        for(var i = 0; i<4; i++){
+            var randomNumber = Math.floor(Math.random() * 100)
+            scoreArray.push(randomNumber);
         }
-        this.length = arguments.length;
-    }
+        console.log(scoreArray);
 
-    var arrMy = new MyArray('你好', 2, {name: 'xiaoMing'}, true, [1,2,3]);
-    for(var i = 0; i< arrMy.length;i++){
-        console.log(arrMy[i]);
-    }
-    var isNotArray = {id: 101};
-    var isArray = [101,102,103];
-    // 判断数组
-    console.log( '判断数组=============================');
-    console.log(Array.isArray(isNotArray));
-    console.log(Array.isArray(isArray));
-
-    console.log( '数组使用=============================');
-    console.log(isArray.toString())
-    console.log(new Array(isArray).toString())
-    // 101 、 102 、 103
-    console.log(isArray.join(' 、'))
-    // 队列  规则  First in First out(先进先出)
-    // push shift
-    var queue = [];
-    queue.push('apple');
-    queue.push('banana');
-    queue.push('orange');
-    console.log(queue.shift()); // apple
-
-    // 栈  规则 Last in First out(后进先出)
-    // push pop
-    var stack = new Array();
-    stack.push('apple')
-    stack.push('grape')
-    stack.push('orange');
-    console.log(stack.pop()); // orange
-
-    // sort 给数组排序
-    var numbers = [1,0,5,4,9,7,6];
-    console.log(numbers.reverse());
-    console.log(numbers.sort().reverse());
-    console.log(numbers.sort(function (prev, next ) {
-        if(next < prev){
-            return -1;
-        }else if(next > prev){
-            return 1;
-        }else {
-            return 0;
+        function isEveryStudentPass(srcScores, scoreLine){
+           return scoreArray.every(item => item > scoreLine);
         }
-    }));
-    // concat 合并数组
-    console.log(numbers.concat(stack))
 
-    // slice 基于当前的数组创建一个或多个新数组
-    // 取 索引 3 与 7  slice(start, end)
-    var slicesNumber = [1,0,5,4,9,7,6,2,9,10,11,13].sort(function (prev, next ) {
-        if(next < prev){
-            return 1;
-        }else if(next > prev){
-            return -1;
-        }else {
-            return 0;
+        function getOverScoreLine(srcScores, scoreLine){
+           return scoreArray.filter(item => item > scoreLine);
         }
-    });
-    console.log(slicesNumber);
-    console.log(slicesNumber.slice(0,4))
-    console.log(slicesNumber.slice(4,8))
-    console.log(slicesNumber.slice(8))
+
+        function isAnyStudentPass(srcScores, scoreLine){
+           return scoreArray.some(item => item > scoreLine);
+        }
+
+        function addAllStudentSpcialScore(apendScore, srcScores){
+            // var resultScores = srcScores.slice();
+            // srcScores.forEach(function(item,index){
+            //     resultScores[index] += apendScore;
+            // })
+            // return resultScores;
+           return srcScores.map(item => item + apendScore);
+        }
+
+        console.log(addAllStudentSpcialScore(5,scoreArray))
+        console.log(isEveryStudentPass(scoreArray, 60))
+        console.log(getOverScoreLine(scoreArray, 60))
+        console.log(isAnyStudentPass(scoreArray, 60))
+
+        // every (zhao) some(zhang) filter(yang) forEach(tao) map(jun)
+        // map 返回一个新的数组
+        // forEach 遍历一个数组 无返回值的 
+        // filter 过滤出条件成立的所有数组元素
+        // some 数组元素中 任意一个元素满足给定函数判断 ? true : false
+        // every 数组所有元素 全都满足给定函数判断 ? true : false
+
+        // callback
+        function MyArray(){
+            this.nodes = [];
+            this.some = function(){
+
+            }
+
+            this.every = function(){
+
+            }
+            // tao
+
+            this.map = function(){
+
+            }
+            // jun
+        }
+        var numbers = new Number()
+        var valuse = [new Number(1), new Number(2)]
+        Math.max(valuse)
+        var myArray = new MyArray();
+        var scoreLine = 60;
+        myArray.nodes = scoreArray;
+
+        //
+        var isSomeOnyPass = myArray.some(function(item, index){
+            return item > scoreLine; 
+        })
+        console.log(isSomeOnyPass);
 
 
 
-
-
-
-
-
-
-
-
-</script>
+    </script>
 </body>
+
 </html>
