@@ -249,7 +249,7 @@
         // newNodes.indexOf(4)
         // newNodes.lastIndexOf(4)
         // var newArray = testArray.slice(2, 4);
-     
+
         // // [2,3,4]
         // testArray[1] = 'edit Item';
         // console.log(testArray);
@@ -291,36 +291,36 @@
         // console.log(objArray.indexOf(idObj))
         // 0 (!!tao || !!zhao)
         // -1 (!!jun || !!qian || !!yang) 
-        
+
         var scoreArray = [];
-        for(var i = 0; i<4; i++){
+        for (var i = 0; i < 4; i++) {
             var randomNumber = Math.floor(Math.random() * 100)
             scoreArray.push(randomNumber);
         }
         console.log(scoreArray);
 
-        function isEveryStudentPass(srcScores, scoreLine){
-           return scoreArray.every(item => item > scoreLine);
+        function isEveryStudentPass(srcScores, scoreLine) {
+            return scoreArray.every(item => item > scoreLine);
         }
 
-        function getOverScoreLine(srcScores, scoreLine){
-           return scoreArray.filter(item => item > scoreLine);
+        function getOverScoreLine(srcScores, scoreLine) {
+            return scoreArray.filter(item => item > scoreLine);
         }
 
-        function isAnyStudentPass(srcScores, scoreLine){
-           return scoreArray.some(item => item > scoreLine);
+        function isAnyStudentPass(srcScores, scoreLine) {
+            return scoreArray.some(item => item > scoreLine);
         }
 
-        function addAllStudentSpcialScore(apendScore, srcScores){
+        function addAllStudentSpcialScore(apendScore, srcScores) {
             // var resultScores = srcScores.slice();
             // srcScores.forEach(function(item,index){
             //     resultScores[index] += apendScore;
             // })
             // return resultScores;
-           return srcScores.map(item => item + apendScore);
+            return srcScores.map(item => item + apendScore);
         }
 
-        console.log(addAllStudentSpcialScore(5,scoreArray))
+        console.log(addAllStudentSpcialScore(5, scoreArray))
         console.log(isEveryStudentPass(scoreArray, 60))
         console.log(getOverScoreLine(scoreArray, 60))
         console.log(isAnyStudentPass(scoreArray, 60))
@@ -333,18 +333,18 @@
         // every 数组所有元素 全都满足给定函数判断 ? true : false
 
         // callback
-        function MyArray(){
+        function MyArray() {
             this.nodes = [];
-            this.some = function(){
+            this.some = function () {
 
             }
 
-            this.every = function(){
+            this.every = function () {
 
             }
             // tao
 
-            this.map = function(){
+            this.map = function () {
 
             }
             // jun
@@ -357,12 +357,38 @@
         myArray.nodes = scoreArray;
 
         //
-        var isSomeOnyPass = myArray.some(function(item, index){
-            return item > scoreLine; 
+        var isSomeOnyPass = myArray.some(function (item, index) {
+            return item > scoreLine;
         })
         console.log(isSomeOnyPass);
 
 
+        var feArray = new Array();
+        feArray.push({ age: 16, name: 'Mr Tao' },
+            { age: 26, name: 'Mis Liu' })
+        var newFeArray = [];
+        feArray.forEach(function (item, index, arrays) {
+            newFeArray.push({
+                name: 'forEach' + item.name,
+                age: item.age
+            })
+        });
+        feArray.forEach(function (item) {
+            console.log(item);
+        })
+        newFeArray.forEach(item => console.log(item));
+
+        var fmArray = new Array();
+        fmArray.push({ age: 16, name: 'Mr Tao' },
+            { age: 26, name: 'Mis Liu' });
+        var resultArray = fmArray.map(item => ({ age: item.age, name: 'map' + item.name }));
+        resultArray.forEach(item => console.log(item.name));
+
+        var resultArray = fmArray.map( (item, index) => ({
+            age: item.age,
+            name: 'map' + item.name
+        }));
+        var resultArray = fmArray.forEach( item => console.log(item))
 
     </script>
 </body>
