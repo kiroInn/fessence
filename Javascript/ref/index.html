@@ -15,7 +15,7 @@
         // Array ECMAScript中较为重要的类型
 
         // Create retrive
-        // var arrEx = new Array('你好', 2, { name: 'xiaoMing' }, true, [1, 2, 3]);
+        // var arrEx = new Array('你好', 2, { owner: 'xiaoMing' }, true, [1, 2, 3]);
         // for (var i = 0; i < arrEx.length; i++) {
         //     console.log(arrEx[i]);
         // }
@@ -29,7 +29,7 @@
 
         // }
 
-        // var arrMy = new MyArray('你好', 2, { name: 'xiaoMing' }, true, [1, 2, 3]);
+        // var arrMy = new MyArray('你好', 2, { owner: 'xiaoMing' }, true, [1, 2, 3]);
         // for (var i = 0; i < arrMy.length; i++) {
         //     console.log(arrMy[i]);
         // }
@@ -364,12 +364,12 @@
 
 
         var feArray = new Array();
-        feArray.push({ age: 16, name: 'Mr Tao' },
-            { age: 26, name: 'Mis Liu' })
+        feArray.push({ age: 16, owner: 'Mr Tao' },
+            { age: 26, owner: 'Mis Liu' })
         var newFeArray = [];
         feArray.forEach(function (item, index, arrays) {
             newFeArray.push({
-                name: 'forEach' + item.name,
+                owner: 'forEach' + item.owner,
                 age: item.age
             })
         });
@@ -379,14 +379,14 @@
         newFeArray.forEach(item => console.log(item));
 
         var fmArray = new Array();
-        fmArray.push({ age: 16, name: 'Mr Tao' },
-            { age: 26, name: 'Mis Liu' });
-        var resultArray = fmArray.map(item => ({ age: item.age, name: 'map' + item.name }));
-        resultArray.forEach(item => console.log(item.name));
+        fmArray.push({ age: 16, owner: 'Mr Tao' },
+            { age: 26, owner: 'Mis Liu' });
+        var resultArray = fmArray.map(item => ({ age: item.age, name: 'map' + item.owner }));
+        resultArray.forEach(item => console.log(item.owner));
 
         var resultArray = fmArray.map( (item, index) => ({
             age: item.age,
-            name: 'map' + item.name
+            name: 'map' + item.owner
         }));
         var resultArray = fmArray.forEach( item => console.log(item))
 

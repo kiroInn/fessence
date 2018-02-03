@@ -20,8 +20,8 @@
         // var result = regularExperssion.exec(orderList);
         // console.log(result);
 
-        // function Goods(name, price, count) {
-        //     this.name = name;
+        // function Goods(owner, price, count) {
+        //     this.owner = owner;
         //     this.price = price;
         //     this.count = count;
         // }
@@ -41,7 +41,7 @@
         // var goodsList = orderList.split('\r\n');
         // var goodsReg = {
         //     validate: /^.* \* \d* \￥\d*\.\d*/,
-        //     name: /^.* /,
+        //     owner: /^.* /,
         //     count: /\* \d*/,
         //     price: /\￥\d*\.\d*/
         // }
@@ -49,15 +49,15 @@
         // var cart = [];
         // goodsList.forEach(str => {
         //     if (goodsReg.validate.test(str)) {
-        //         var name = goodsReg.name.exec(str);
+        //         var owner = goodsReg.owner.exec(str);
         //         var count = goodsReg.count.exec(str);
         //         var price = goodsReg.price.exec(str);
-        //         name = name[0].replace(/ \* \d*/, '').trim();
+        //         owner = owner[0].replace(/ \* \d*/, '').trim();
         //         count = count[0].replace('* ', '');
         //         price = price[0].replace('￥', '');
-        //         var goods = new Goods(name,price,count);
+        //         var goods = new Goods(owner,price,count);
         //         cart.push(goods);
-        //         console.log('商品' + goods.name + '信息', goods.count, goods.price, parseInt(goods.count) * parseFloat(goods.price))
+        //         console.log('商品' + goods.owner + '信息', goods.count, goods.price, parseInt(goods.count) * parseFloat(goods.price))
         //         cartTotal += parseInt(goods.count) * parseFloat(goods.price)
         //     }
         // })
@@ -68,61 +68,98 @@
         //     console.log(RegExp.$1);
         // }
 
-        // var email = 'jeff.Han@domain.com';
+        // var value = 'jeff.Han@domain.com';
         // // dsakljd  aklsdjlaskdj@
         // var emailRegExp = /(\w+|\w+\.\w+)@\w+(\w\.)+[a-zA-Z]$/i;
-        // console.log('当前email'+ email, emailRegExp.test(email));
-        function pay(name, price) {
-            console.log('商品' + name + '花费了' + price);
-        }
-        pay('面包', 3)
+        // console.log('当前email'+ value, emailRegExp.test(value));
+        // function pay(owner, price) {
+        //     console.log('商品' + owner + '花费了' + price);
+        // }
+        // pay('面包', 3)
+        //
+        // var payFunction = new Function('owner', 'price', 'console.log(\'商品\' + owner + \'花费了\' + price);')
+        //
+        // var wangXiao = {
+        //     owner: 'wangXiao'
+        // }
+        //
+        // function showName(date) {
+        //     return '在' + date + 'showName' + this.owner;
+        // }
+        //
+        // var wangXiaoLan = {
+        //     owner: 'wangXiaoLan'
+        // }
+        //
+        // console.log(showName.call(wangXiao, new Date()));
+        // console.log(showName.apply(wangXiaoLan, [new Date()]))
+        // console.log(showName.call(wangXiaoLan, new Date()))
+        // // apply 与 call 最大的作用
+        // // 在特定的作用域中调用函数
+        // // 对象不需要与方法有耦合关系(解耦)
+        // // apply 与 call 的区别
+        // // 参数传递方式不同 apply需要传递数组 call 传递,分割的参数
+        //
+        // // bind 绑定作用域
+        // var bindFunction = showName.bind(wangXiaoLan);
+        // console.log(bindFunction(new Date()));
+        //
+        // // 内置类型 Global Math
+        // // parseInt parseFloat eval
+        // // encodeURIComponent()
+        // // encodeURI()
+        // // Math.max Math.min
+        // for (var i = 0; i < 1000; i++) {
+        //     console.log(i);
+        // }
+        // eval('alert(10)');
+        // for (var i = 0; i < 1000; i++) {
+        //     console.log(i);
+        // }
+        // var url = 'regular%20experssion*&%5E'; // 浏览器 encodeURI
+        // var url1= 'regular%20experssion*%26%5E' // encodeURIComponent
+        // var url2= 'regular%20experssion*&%5E'; //encodeURI
+        // var origin = 'regular experssion*&^'; // origin
+        // console.log(decodeURIComponent('regular%20experssion*%26%5E'))
+        // console.log(decodeURI('regular%20experssion*&%5E'))
+        // BOM DOM
+        //
+        // var emailRegExp = /\S+@\S+\.\S+/;
+        // var emailStringArray = ['1936527557@qq.com','1936527557@qq.com','1936527xx7@qq.com']
+        // var emailObject = new Object();
+        // emailObject.owner = 'hack';
+        // emailObject.value = 'hack@hack.me'
+        // var emailList = [emailObject, {
+        //     owner: 'xx1',
+        //     value: 'test@test.com'
+        // },{
+        //     owner: 'xx2',
+        //     value: 'test@test.com'
+        // },{
+        //     owner: 'xx2',
+        //     value:'test@test.com'
+        // },{
+        //     owner: 'xx2,
+        //     value: 'test@test.com'
+        // },{
+        //     owner: 'xx2',
+        //     value: 'test@test.com'
+        // },{
+        //     owner:'xx2',
+        //     value: 'test@test.com'
+        // }];
+        // emailList.forEach(function (item) {
+        //     console.log('当前用户'+ item.owner + '邮箱正确否:' + emailRegExp.test(item.value));
+        // });
 
-        var payFunction = new Function('name', 'price', 'console.log(\'商品\' + name + \'花费了\' + price);')
 
-        var wangXiao = {
-            name: 'wangXiao'
-        }
 
-        function showName(date) {
-            return '在' + date + 'showName' + this.name;
-        }
 
-        var wangXiaoLan = {
-            name: 'wangXiaoLan'
-        }
 
-        console.log(showName.call(wangXiao, new Date()));
-        console.log(showName.apply(wangXiaoLan, [new Date()]))
-        console.log(showName.call(wangXiaoLan, new Date()))
-        // apply 与 call 最大的作用
-        // 在特定的作用域中调用函数
-        // 对象不需要与方法有耦合关系(解耦)
-        // apply 与 call 的区别
-        // 参数传递方式不同 apply需要传递数组 call 传递,分割的参数
 
-        // bind 绑定作用域
-        var bindFunction = showName.bind(wangXiaoLan);
-        console.log(bindFunction(new Date()));
 
-        // 内置类型 Global Math
-        // parseInt parseFloat eval
-        // encodeURIComponent()
-        // encodeURI()
-        // Math.max Math.min 
-        for (var i = 0; i < 1000; i++) {
-            console.log(i);
-        }
-        eval('alert(10)');
-        for (var i = 0; i < 1000; i++) {
-            console.log(i);
-        }
-        var url = 'regular%20experssion*&%5E'; // 浏览器 encodeURI
-        var url1= 'regular%20experssion*%26%5E' // encodeURIComponent
-        var url2= 'regular%20experssion*&%5E'; //encodeURI
-        var origin = 'regular experssion*&^'; // origin
-        console.log(decodeURIComponent('regular%20experssion*%26%5E'))
-        console.log(decodeURI('regular%20experssion*&%5E'))
+
     </script>
 </body>
 
-</html>
+</html> 

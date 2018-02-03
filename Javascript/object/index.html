@@ -14,24 +14,24 @@
 
         // Create 构造函数Object
         var person1 = new Object();
-        person1.name = 'teahcerWang';
+        person1.owner = 'teahcerWang';
         person1.age = 27;
         person1.introCount = 0;
         person1.isMale = true;
         person1.intro = function () {
-            console.log('我是' + this.name +
+            console.log('我是' + this.owner +
                 '年龄' + this.age +
                 '是我第' + this.introCount++ + '为大家介绍');
         };
 
         // Create 字面量表示
         // var person2 = {
-        //     name: "teacherZhang",
+        //     owner: "teacherZhang",
         //     age: 27,
         //     isMale: true,
         //     introCount: 0,
         //     intro: function () {
-        //         console.log('我是' + this.name +
+        //         console.log('我是' + this.owner +
         //             '年龄' + this.age +
         //             '是我第' + this.introCount++ + '为大家介绍');
         //     }
@@ -47,7 +47,7 @@
         // }
         //
         // var miPhone = new Phone();
-        // miPhone.name = 'xxx';
+        // miPhone.owner = 'xxx';
         // miPhone.play = function () { }
         // the new keywords
         // 1 create new object simply object;
@@ -82,7 +82,7 @@
         // console.log(test.number());
         // console.log(test['number']());
 
-        // leftxxx property name
+        // leftxxx property owner
         //  right xxx property value
 
         // 电脑 对象
@@ -100,10 +100,10 @@
         // // 比较灵活
         //
         // var obj = new Object();
-        // obj.name = 'obj name';
+        // obj.owner = 'obj owner';
         // obj.label = 'obj label';
         // obj.toString = function () {
-        //     console.log('name: ' + this.name + ' label: ' + this.label);
+        //     console.log('owner: ' + this.owner + ' label: ' + this.label);
         // };
         // // console.log(obj);
         //
@@ -125,7 +125,7 @@
         // logger(true);
         // logger(obj);
         //
-        // console.log(obj.name);
+        // console.log(obj.owner);
         // console.log(obj.label);
         // console.log(obj.toString());
         // console.log(obj.hasOwnProperty);
@@ -161,21 +161,21 @@
         // 我们可以同过 Function.apply || Function.call 去改变执行中的this 执行的上下文
         // 此对象就是this
 
-        // window.name = name
-        // var name = '我是需要处理的字符串: 只留下我(全局的我)';
+        // window.owner = owner
+        // var owner = '我是需要处理的字符串: 只留下我(全局的我)';
         // var initialString  = '我是需要处理的字符串: 只留下我(myString)';
         // var myString  = {
-        //     name: initialString,
+        //     owner: initialString,
         //     slicer: function(index){
-        //         return this.name.slice(index);
+        //         return this.owner.slice(index);
         //     }
         // };
         //
         // var myThis = {
-        //     name: '我是需要处理的字符串: 只留下我(my this)'
+        //     owner: '我是需要处理的字符串: 只留下我(my this)'
         // };
         // var echoThis = {
-        //     name: '我是需要处理的字符串: 只留下我(echo this)'
+        //     owner: '我是需要处理的字符串: 只留下我(echo this)'
         // }
 
         // console.log(myString.slicer(13));  //只留下我(myString)'
@@ -186,9 +186,9 @@
         //
         // var slicer = function(index){
         //     console.log(this === window);
-        //     // var name = '我是需要处理的字符串: 只留下我(全局的我)';
+        //     // var owner = '我是需要处理的字符串: 只留下我(全局的我)';
         //     // return 只留下我(全局的我)'
-        //     return this.name.slice(index);
+        //     return this.owner.slice(index);
         // }
         //
         // console.log(slicer(13));
@@ -239,11 +239,11 @@
         //工厂模式
         function createPerson(name, age, job) {
             var o = new Object();
-            o.name = name;
+            o.owner = name;
             o.age = age;
             o.job = job;
             o.sayName = function () {
-                alert(this.name);
+                alert(this.owner);
             };
             return o;
         }
@@ -251,11 +251,11 @@
         var person2 = createPerson("Greg", 27, "Doctor");
         //构造函数
         function Person(name, age, job) {
-            this.name = name;
+            this.owner = name;
             this.age = age;
             this.job = job;
             this.sayName = function () {
-                alert(this.name);
+                alert(this.owner);
             };
         }
         var person1 = new Person("Nicholas", 29, "Software Engineer");
@@ -275,11 +275,11 @@
 
         function Person() {
         }
-        Person.prototype.name = "Nicholas";
+        Person.prototype.owner = "Nicholas";
         Person.prototype.age = 29;
         Person.prototype.job = "Software Engineer";
         Person.prototype.sayName = function () {
-            alert(this.name);
+            alert(this.owner);
         };
         var person1 = new Person();
         person1.sayName(); //"Nicholas"
