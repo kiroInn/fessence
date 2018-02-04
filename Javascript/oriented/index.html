@@ -1,209 +1,364 @@
 <html>
+
 <head>
     <title>Object Oriented Programming</title>
 </head>
+
 <body>
-<script>
-    // Object Oriented Programming
+    <script>
+        // Object Oriented Programming
 
-    var carBrand = 'xx车';
-    var carPrice = '100000';
-    var carHighSpeed = '240km/h';
-    var carRun = function () {
-        console.log('running');
-    }
-
-    // var car = {
-    //     brand: 'xx车',
-    //     price: 100000,
-    //     highSpeed: '240km/h',
-    //     security: '4组安全气囊',
-    //     settings: 'xxxx',
-    //     run: function () {
-    //         console.log('running');
-    //     }
-    // };
-    //
-    // console.log(car);
-    //
-    // delete car.brand;
-    // console.log(car);
-    //
-
-    var car = {
-        price: '100000',
-        _speed: '0km/h'
-    };
-    // var property = {
-    //     value: '100000',
-    //     writable: true,
-    //     enumerable: true,
-    //     configurable: true
-    // }
-
-    // ECMAScript 5 的 Object.defineProperty() 方法
-    Object.defineProperty(car, 'brand', {
-        value: 'xx车'
-    });
-    delete car.brand;
-    car.brand = 'yy车';
-    for(var key in car){
-        console.log(car[key]);
-    }
-    // defineProperties
-    Object.defineProperties(car, {
-        brand1: {
-            writable: true,
-            value: 'defaultBrand'
-        },
-        price: {
-            writable: true,
-            value: 'defaultPrice'
+        var carBrand = 'xx车';
+        var carPrice = '100000';
+        var carHighSpeed = '240km/h';
+        var carRun = function () {
+            console.log('running');
         }
-    })
 
-    car.price = 'notDefaultPrice';
-    for(var key in car){
-        console.log(key, car[key]);
-    }
-    // 使用defineProperty 与 {} 字面声明的区别？
-    // 字面量 声明后 可以使用defineProperty 声明同一属性
-    // defineProperty 声明后 不能继续通过defineProperty声明同一属性
-    // {...} descriptor default value diff
+        // var car = {
+        //     brand: 'xx车',
+        //     price: 100000,
+        //     highSpeed: '240km/h',
+        //     security: '4组安全气囊',
+        //     settings: 'xxxx',
+        //     run: function () {
+        //         console.log('running');
+        //     }
+        // };
+        //
+        // console.log(car);
+        //
+        // delete car.brand;
+        // console.log(car);
+        //
 
-    // car.brand         :       object get property  translate    car.price
-    // car.brand = 'zz车': = 'zz车' set obj property
+        var car = {
+            price: '100000',
+            _speed: '0km/h'
+        };
+        // var property = {
+        //     value: '100000',
+        //     writable: true,
+        //     enumerable: true,
+        //     configurable: true
+        // }
 
-    Object.defineProperty(car, 'speed', {
-        get: function () {
-            console.log('hook get function');
-            return this._speed
-        },
-        set: function (v) {
-            console.log('hook set function');
-            this._speed = v;
+        // ECMAScript 5 的 Object.defineProperty() 方法
+        Object.defineProperty(car, 'brand', {
+            value: 'xx车'
+        });
+        delete car.brand;
+        car.brand = 'yy车';
+        for (var key in car) {
+            console.log(car[key]);
         }
-    });
+        // defineProperties
+        Object.defineProperties(car, {
+            brand1: {
+                writable: true,
+                value: 'defaultBrand'
+            },
+            price: {
+                writable: true,
+                value: 'defaultPrice'
+            }
+        })
 
-    // console.log(car.speed)
-    car.speed = '300km/h'
-    // Vue AngularJs React  => Event Listener Domain
-    // 字面量 构造方法 new Object
-    
-    // 工厂模式
-    function productionWater() {
-        var water = {};
-        water.brand = '哇哈哈矿泉水';
-        water.volume = 600;
-        water.xxx = 'xxx';
-        return water;
-    }
+        car.price = 'notDefaultPrice';
+        for (var key in car) {
+            console.log(key, car[key]);
+        }
+        // 使用defineProperty 与 {} 字面声明的区别？
+        // 字面量 声明后 可以使用defineProperty 声明同一属性
+        // defineProperty 声明后 不能继续通过defineProperty声明同一属性
+        // {...} descriptor default value diff
 
-    var waterBox = {
-        values: [],
-        push: function (waterObj) {
-            if(isWaterType(waterObj)){
-                this.values.push(waterObj);
-            }else{
-                console.error('type err');
+        // car.brand         :       object get property  translate    car.price
+        // car.brand = 'zz车': = 'zz车' set obj property
+
+        Object.defineProperty(car, 'speed', {
+            get: function () {
+                console.log('hook get function');
+                return this._speed
+            },
+            set: function (v) {
+                console.log('hook set function');
+                this._speed = v;
+            }
+        });
+
+        // console.log(car.speed)
+        car.speed = '300km/h'
+        // Vue AngularJs React  => Event Listener Domain
+        // 字面量 构造方法 new Object
+
+        // 工厂模式
+        function productionWater() {
+            var water = {};
+            water.brand = '哇哈哈矿泉水';
+            water.volume = 600;
+            water.xxx = 'xxx';
+            return water;
+        }
+
+        var waterBox = {
+            values: [],
+            push: function (waterObj) {
+                if (isWaterType(waterObj)) {
+                    this.values.push(waterObj);
+                } else {
+                    console.error('type err');
+                }
+            }
+        };
+
+        waterBox.push(productionWater());
+        waterBox.push(productionWater());
+        waterBox.push({ volume: 'hack' });
+        waterBox.values.forEach(function (water) {
+            console.log(water);
+        });
+
+
+        function isWaterType(waterObj) {
+            return waterObj.hasOwnProperty('volume') && typeof waterObj.volume === 'number'
+        }
+
+        var waterNewBox = {
+            values: [],
+            push: function (instance) {
+                if (instance instanceof Water) {
+                    this.values.push(instance);
+                } else {
+                    console.error('type err');
+                }
+            }
+        };
+
+        waterNewBox.push(new Water('哇哈哈矿泉水', 600));
+        waterNewBox.push(new Water('哇哈哈矿泉水', 600));
+        waterNewBox.push(new Water('哇哈哈矿泉水', 600));
+        waterNewBox.push(new Water('哇哈哈矿泉水', 600));
+        waterNewBox.push({
+            notWaterProp: 'not water'
+        });
+
+        waterNewBox.values.forEach(function (water) {
+            console.log(water);
+        })
+
+        function Water(brand, volume, xxx) {
+            this.brand = brand;
+            this.volume = volume;
+            this.xxx = xxx;
+            this.drink = function () {
+                console.log('drink now');
             }
         }
-    };
+        //
+        // function _Water(brand, volume, xxx) {
+        //     obj.brand = brand;
+        //     obj.volume = volume;
+        //     obj.xxx = xxx;
+        //     return obj;
+        // }
+        // function _newWaterProcess(){
+        //     var obj = new Object();
+        //     obj.__proto__ = Water.prototype;
+        //     return _Water.call(obj);
+        // }
+        // new关键字  当我们使用new 会发生什么
+        // var water1 = new Water('哇哈哈矿泉水', 600);
+        //     innerObj = {brand: xxx, volume: xxx, __proto__: functiona : functiona {
+        // }}
+        var water2 = new Water('哇哈哈矿泉水', 600);
+        var water3 = new Water('哇哈哈矿泉水', 600);
+        var water4 = new Water('哇哈哈矿泉水', 600);
+        // water1.brand
 
-    waterBox.push(productionWater());
-    waterBox.push(productionWater());
-    waterBox.push({volume: 'hack'});
-    waterBox.values.forEach(function (water) {
-        console.log(water);
-    });
+        // prototype 是每一个函数都有的一个属性(原型) 是一个指针 指向一个对象(heap)
+        // 作用 对象有当前函数类型的所有实例共享的属性和方法
+        // __proto__ 作用actual 在使用属性方法的一个查找属性
 
 
-    function isWaterType(waterObj) {
-        return waterObj.hasOwnProperty('volume') && typeof waterObj.volume === 'number'
-    }
+        // 作为图书管理者(bookManager)
+        // 我期望高效的管理学校的图书(Book)
+        // 日常工作(have)
+        // 管理  借出书籍(borrow)
+        // 管理  归还书籍(back)
+        // 统计  在馆书籍(list)
+        // 归还时候的书籍 一定是本馆借出的(new feature)
 
-    var waterNewBox = {
-        values: [],
-        push: function (instance) {
-            if(instance instanceof Water){
-                this.values.push(instance);
-            }else{
-                console.error('type err');
+        function Book(uuid, name) {
+            this.uuid = uuid;
+            this.name = name;
+        }
+        Book.prototype.c
+
+        var bookManager = (function () {
+            var books = [];
+            var borrowBook = [];
+            var borrow = function (uid) {
+                var resultBook;
+                for (var i = 0; i < books.length; i++) {
+                    if (uid === books[i].uuid) {
+                        resultBook = books[i];
+                        books.splice(i, 1);
+                        borrowBook.push(resultBook);
+                    }
+                }
+                return resultBook;
+            };
+            var back = function (uid) {
+                for (var i = 0; i < borrowBook.length; i++) {
+                    if (uid === borrowBook[i].uuid) {
+                        books.push(borrowBook[i]);
+                        borrowBook.splice(i, 1);
+                    } else {
+                        console.log("非本管书籍！！")
+                    }
+                }
+            };
+            var list = function () {
+                console.log(books);
+            };
+            var push = function (book) {
+                if (book instanceof Book) {
+                    books.push(book);
+                } else {
+                    console.error('push book type err');
+                }
+            };
+            var bookLength = function () {
+                return books.length;
+            }
+            return {
+                borrow: borrow,
+                back: back,
+                list: list,
+                push: push,
+                bookLength: bookLength
+            }
+        }());
+
+        bookManager.push(new Book(1, '《水浒传1》'));
+        bookManager.push(new Book(2, '《水浒传2》'));
+        bookManager.push(new Book(3, '《水浒传3》'));
+        bookManager.push(new Book(4, '《水浒传4》'));
+        bookManager.push(new Book(5, '《水浒传5》'));
+        bookManager.push(new Book(6, '《水浒传6》'));
+
+        console.log('should borrow one book')
+        bookManager.borrow(2);
+        console.log('expect books remaind 5 books', bookManager.bookLength() === 5);
+
+        console.log('should not borrow same book')
+        bookManager.borrow(2);
+        console.log('expect books remaind 5 books', bookManager.bookLength() === 5);
+
+        console.log('should back one book')
+        bookManager.back(2);
+        console.log('expect books remaind 6 books', bookManager.bookLength() === 6);
+
+        console.log('should  not back same book')
+        bookManager.back(2);
+        console.log('expect books remaind 6 books', bookManager.bookLength() === 6);
+
+        console.log('should not borrow bad book')
+        bookManager.borrow('xxxx');
+        console.log('expect books remaind 6 books', bookManager.bookLength() === 6);
+
+        console.log('should not back bad book')
+        bookManager.back('xxxxx');
+        console.log('expect books remaind 6 books', bookManager.bookLength() === 6);
+
+        function Book(uuid, name) {
+            this.uuid = uuid;
+            this.name = name;
+        }
+        var originBook = Book(1, '《水浒传》');
+        // 无关键字new 进入275line 此时this?
+        console.log(window.uuid === 1);
+        console.log(window.name === '《水浒传》')
+
+        var newBook = new Book(1, '《水浒传》');
+        // function Book(){
+        //     var obj = {};
+        //     obj.__proto__ = Book.prototype;
+        //     Book.call(obj);
+        // }
+
+        var array = [1, 2, 3, 4]
+        for (var i = 0; i < array.length; i++) {
+            console.log(array[i])
+        }
+
+        // 对象枚举
+        for (var prop in newBook) {
+            console.log(prop);
+            console.log(newBook[prop])
+        }
+
+        // Tea or Coffee
+        function TasteDrink(){
+        }
+        TasteDrink.prototype.step1 = function(){
+            if(!this.hasOwnProperty('step1')){
+                throw new Error('step1 must override');
             }
         }
-    };
-
-    waterNewBox.push(new Water('哇哈哈矿泉水', 600));
-    waterNewBox.push(new Water('哇哈哈矿泉水', 600));
-    waterNewBox.push(new Water('哇哈哈矿泉水', 600));
-    waterNewBox.push(new Water('哇哈哈矿泉水', 600));
-    waterNewBox.push({
-        notWaterProp: 'not water'
-    });
-
-    waterNewBox.values.forEach(function (water) {
-        console.log(water);
-    })
-
-    function Water(brand, volume, xxx) {
-        this.brand = brand;
-        this.volume = volume;
-        this.xxx = xxx;
-        this.drink = function () {
-            console.log('drink now');
+        TasteDrink.prototype.step2 = function(){
+            console.log('倒入开水');
         }
-    }
-    //
-    // function _Water(brand, volume, xxx) {
-    //     obj.brand = brand;
-    //     obj.volume = volume;
-    //     obj.xxx = xxx;
-    //     return obj;
-    // }
-    // function _newWaterProcess(){
-    //     var obj = new Object();
-    //     obj.__proto__ = Water.prototype;
-    //     return _Water.call(obj);
-    // }
-    // new关键字  当我们使用new 会发生什么
-    // var water1 = new Water('哇哈哈矿泉水', 600);
-    //     innerObj = {brand: xxx, volume: xxx, __proto__: functiona : functiona {
-    // }}
-    var water2 = new Water('哇哈哈矿泉水', 600);
-    var water3 = new Water('哇哈哈矿泉水', 600);
-    var water4 = new Water('哇哈哈矿泉水', 600);
-    // water1.brand
-
-    // prototype 是每一个函数都有的一个属性(原型) 是一个指针 指向一个对象(heap)
-    // 作用 对象有当前函数类型的所有实例共享的属性和方法
-    // __proto__ 作用actual 在使用属性方法的一个查找属性
-
-
-    // 作为图书管理者(bookManager)
-    // 我期望高效的管理学校的图书(Book)
-    // 日常工作(have)
-    // 管理  借出书籍(borrow)
-    // 管理  归还书籍(back)
-    // 统计  在馆书籍(list)
-    // 归还时候的书籍 一定是本馆借出的(new feature)
-
-    function Book(uuid) {
-        this.uuid = uuid;
-        this.name = name;
-    }
-    var bookManager = {
-        books: [],
-        borrow: function (uuid) {
-            
-        },
-        back: function (uuid) {
-            
-        },
-        list: function () {
-
+        TasteDrink.prototype.step3 = function(){
+            console.log('稍等片刻');
         }
-    }
+        TasteDrink.prototype.step4 = function(){
+            console.log('开始品尝');
+        }
+        TasteDrink.prototype.startTaste = function(){
+            this.step1();
+            this.step2();
+            if(this.hasOwnProperty('haveStep3') && this.haveStep3()){
+               this.step3();
+            }
+            this.step4();
+        }
 
-</script>
+        function DrinkTea(){
+            this.step1 = function(){
+                console.log('准备杯子 倒入茶叶');
+            }
+            this.haveStep3 = function(){
+                return true;
+            }
+        } 
+        DrinkTea.prototype = new TasteDrink();  
+
+        var drinkTea = new DrinkTea();
+        drinkTea.startTaste();   
+
+        function DrinkJuice(){
+            this.step1 = function(){
+                console.log('准备杯子 倒入果汁')
+            }
+            // hook 钩子 function
+            this.haveStep3 = function(){
+                return false;
+            }
+        } 
+        DrinkJuice.prototype = new TasteDrink();
+        var drinkJuice = new DrinkJuice();
+        drinkJuice.startTaste();      
+        
+ 
+        
+        
+
+
+
+
+    </script>
 </body>
+
 </html>
