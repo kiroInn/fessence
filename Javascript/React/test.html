@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .content {
+            height: 200px;
+            background: pink;
+        }
+
+        .footer {
+            height: 100px;
+            background-color: blueviolet;
+        }
+
+        .footer-division {
+            height: 4px;
+            background-color: blue;
+        }
+
+        .wapper {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+
+        .wapperInner {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: hotpink;
+        }
+
+        .article-header .type {
+            margin-right: 6px;
+            padding-left: 4px;
+            padding-right: 4px;
+            border-radius: 2px;
+            background-color: #4fc0e9;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .article-header .type-data-container {
+            line-height: 20px;
+        }
+
+        .article-header .tag {
+            display: inline-block;
+            padding: 0px 3px;
+            margin-right: 4px;
+            margin-top: 4px;
+            border: solid 1px #84d6f3;
+            color: rgb(79, 192, 233);
+            font-size: 10px;
+            border-radius: 8px;
+            height: 14px;
+            line-height: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article-header">
+        <span class="tag">我的</span>
+        <span class="tag">你的</span>
+        <span class="tag">asdasd</span>
+        <span class="tag">12312321</span>
+    </div>
+    <div class="wapper">
+        <div class="wapperInner">
+
+        </div>
+    </div>
+    <div class="content">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="footer-division"></div>
+    </div>
+
+    <script>
+        console.log('script');
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = (function (i) {
+                return function () {
+                    console.log(i);
+                }
+            })(i)
+        }
+        // document.querySelector('.test').addEventListener('click', function(e){
+        //     console.log(e)
+        // })
+    </script>
+</body>
+
+</html>
