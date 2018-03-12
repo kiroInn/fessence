@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>物品状态管理</title>
+    <style>
+        .goodsContainer{
+            border: 1px solid gold;
+            padding: 10px;
+        }
+        .goods{
+            display: inline-block;
+            width: 24%;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px dashed #84d6f3;
+        }
+        .status{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #446677;
+        }
+        .headline{
+            margin-bottom: 20px;
+        }
+        .idle{
+            background-color: greenyellow;
+        }
+        .used{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="headline">
+    <div><span>空闲</span><div class="idle status"></div></div>
+    <div><span>租用</span><div class="used status"></div></div>
+</div>
+<div class="goodsContainer">
+    <div id="dress" class="goods">dress</div>
+    <div id="powerBank" class="goods">powerBank</div>
+    <div id="lego" class="goods">lego</div>
+    <div id="digitCamera" class="goods">digitCamera</div>
+</div>
+<script>
+    var dressUseTime = 1000;
+    var legoUseTime = 2000;
+    var goodsContainer = document.getElementsByClassName('goodsContainer')[0]
+    var goodsList = goodsContainer.getElementsByClassName('goods')
+    for(var i = 0 ; i < goodsList.length ; i++ ){
+        var node = goodsList[i]
+        node.className = node.classList + ' idle'
+    }
+
+    setTimeout(useDress, dressUseTime)
+    setTimeout(useLego,legoUseTime)
+
+    function useDress() {
+        var dressNode = document.getElementById('dress')
+        dressNode.className = dressNode.className.replace('idle', 'used')
+    }
+    function useLego() {
+        var legoNode = document.getElementById('lego')
+        legoNode.className = legoNode.className.replace('idle','used')
+    }
+
+
+</script>
+
+</body>
+</html>

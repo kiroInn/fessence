@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>frame</title>
+    <style>
+        .main{
+            width: 600px;
+            height: 100vw;
+            background-color: gray;
+        }
+        .jumper{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: darkgoldenrod;
+        }
+        .jumper.start{
+            animation:changeColor 5s infinite;
+        }
+
+    </style>
+</head>
+<body>
+<!-- describe create custom component -->
+<div class="main">
+    <!--<iframe src="http://www.baidu.com" frameborder="0"></iframe>-->
+    <div class="jumper">
+        <div class="content">id</div><div class="content">id</div><div class="content">id</div><div class="content">id</div></div>
+</div>
+<script>
+    setInterval(exchangeJumper, 2000)
+    function exchangeJumper() {
+        let colors = ['deeppink', 'darkblue', 'darkgoldenrod'];
+        let target = document.getElementsByClassName('jumper')[0];
+        target.style.backgroundColor = colors[Math.floor(Math.random()* colors.length)]
+    }
+</script>
+</body>
+</html>
